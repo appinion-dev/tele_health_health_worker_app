@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.verifyPatientMobileNumber.VerifyPatientMobileNumberFragment">
+
+    <data class="VerifyPatientMobileNumberFragmentBinding"/>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/std_margin_16"
+        android:src="@drawable/ic_baseline_arrow_back_primary_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/image" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginBottom="24dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/phone_icon_dark"
+            android:contentDescription="@string/image" />
+
+        <ImageView
+            android:id="@+id/progress"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            app:srcCompat="@drawable/circule_for_phone"
+            android:contentDescription="@string/image" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/verify"
+        style="@style/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/verify_patient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/text_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/enter_mobile_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verify" />
+
+<!--    <EditText-->
+<!--        android:id="@+id/mobileNo"-->
+<!--        style="@style/text_normal"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="48dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Please enter otp"-->
+<!--        android:inputType="textPersonName"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
+
+    <TextView
+        android:id="@+id/mobileNoCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/text_normal_primary"
+        android:text="+880"
+        app:layout_constraintBottom_toBottomOf="@+id/mobileNo"
+        app:layout_constraintEnd_toStartOf="@+id/mobileNo"
+        app:layout_constraintTop_toTopOf="@+id/mobileNo" />
+
+    <EditText
+        android:id="@+id/mobileNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textCursorDrawable="@drawable/color_cursor"
+        style="@style/text_normal"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_marginTop="32dp"
+        android:ems="9"
+        android:maxEms="9"
+        android:maxLines="1"
+        android:inputType="phone"
+        android:digits="0123456789"
+        android:imeOptions="actionDone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:autofillHints="Phone Number"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/sendOtp"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/send_otp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobileNo" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

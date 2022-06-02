@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.doctorProfile.DoctorProfileFragment">
+
+    <data class="DoctorProfileFragmentBinding"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="0dp"
+            android:layout_height="216dp"
+            android:background="@color/light_grey"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_healthcare_and_medical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rate"
+            style="@style/text_title_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/colorPrimary"
+            android:paddingStart="@dimen/std_margin_16"
+            android:paddingTop="@dimen/std_dimen_4"
+            android:paddingEnd="@dimen/std_margin_16"
+            android:paddingBottom="@dimen/std_dimen_4"
+            android:text="@string/demo_rate"
+            app:layout_constraintBottom_toBottomOf="@+id/image"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/text_normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/demo_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image" />
+
+        <TextView
+            android:id="@+id/experience"
+            style="@style/text_normal_primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/demo_exp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <TextView
+            android:id="@+id/qualification"
+            style="@style/text_small_light_gray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/mbbs"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/experience" />
+
+<!--        <androidx.constraintlayout.widget.Barrier-->
+<!--            android:id="@+id/barrier"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:barrierDirection="bottom"-->
+<!--            app:constraint_referenced_ids="qualification,name,experience"-->
+<!--            tools:layout_editor_absoluteY="731dp" />-->
+
+        <TextView
+            android:id="@+id/regNo"
+            style="@style/text_small_light_gray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:drawablePadding="@dimen/std_dimen_8"
+            android:text="@string/regno"
+            app:drawableStartCompat="@drawable/ic_business"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qualification" />
+
+        <TextView
+            android:id="@+id/language"
+            style="@style/text_small_light_gray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:drawablePadding="@dimen/std_dimen_8"
+            android:text="@string/demo_language"
+            app:drawableStartCompat="@drawable/ic_communications"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/regNo"
+            app:layout_constraintTop_toBottomOf="@+id/regNo" />
+
+        <TextView
+            android:id="@+id/workPlace"
+            style="@style/text_small_light_gray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:drawablePadding="@dimen/std_dimen_8"
+            android:text="@string/demo_work_place"
+            app:drawableStartCompat="@drawable/ic_medical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/regNo"
+            app:layout_constraintTop_toBottomOf="@+id/language" />
+
+        <TextView
+            android:id="@+id/location"
+            style="@style/text_small_light_gray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:drawablePadding="@dimen/std_dimen_8"
+            android:text="@string/demo_location"
+            app:drawableStartCompat="@drawable/ic_signs"
+            app:layout_constraintBottom_toTopOf="@+id/confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/regNo"
+            app:layout_constraintTop_toBottomOf="@+id/workPlace"
+            app:layout_constraintVertical_bias="0.0" />
+
+<!--        <com.google.android.material.tabs.TabLayout-->
+<!--            android:id="@+id/slidingTabs"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/qualification"-->
+<!--            app:tabBackground="@color/white"-->
+<!--            app:tabIndicatorColor="@color/colorPrimary"-->
+<!--            app:tabMode="fixed"-->
+<!--            app:tabSelectedTextColor="#3D404B"-->
+<!--            app:tabTextColor="#983d404b" />-->
+
+<!--        <androidx.viewpager.widget.ViewPager-->
+<!--            android:id="@+id/viewpager"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:background="#F9F9FA"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/confirm"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/slidingTabs" />-->
+
+        <TextView
+            android:id="@+id/confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/text_title_white"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:paddingTop="@dimen/std_dimen_8"
+            android:paddingBottom="@dimen/std_dimen_8"
+            android:text="@string/confirm_appointment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

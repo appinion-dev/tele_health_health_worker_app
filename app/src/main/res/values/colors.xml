@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/lightish_blue</color>
+    <color name="colorPrimaryDark">@color/lightish_blue</color>
+    <color name="colorPrimary_20">@color/lightish_blue_20</color>
+    <!--<color name="colorAccent">#FF4081</color>-->
+    <color name="colorAccent">@color/grey_text</color>
+    <color name="colorSoftPrimary">@color/soft_blue</color>
+    <color name="colorTabTint">@color/blue_tint</color>
+    <color name="darkGray">#3D404B</color>
+
+    <!-- blue -->
+    <color name="lightish_blue">#282965</color> <!--#0BA8CA-->
+    <!--<color name="lightish_blue">#21a4ef</color>-->
+    <color name="dodger_blue">#282965</color>
+    <color name="toolbar_blue">#282965</color>
+    <color name="cool_blue">#282965</color>
+    <color name="clear_blue">#282965</color>
+    <color name="button_blue">#282965</color>
+    <color name="soft_blue">#282965</color>
+    <color name="dark_accent">#282965</color>
+    <!--<color name="soft_blue">#43ABE8</color>-->
+    <color name="lightish_blue_20">#282965</color>
+    <!--<color name="lightish_blue_20">#cc21a4ef</color>-->
+    <color name="blue_tint">#282965</color>
+
+    <!-- green -->
+    <color name="spearmint">#29f070</color>
+    <color name="normal_green">#10BC52</color>
+
+    <!-- grey -->
+    <color name="grey_text">#9e9e9e</color>
+    <color name="brownish_grey">#6b6b6b</color>
+    <color name="grey_background">#efefef</color>
+    <color name="dark_brown">#222222</color>
+    <color name="dark_grey">#696969</color>
+    <color name="light_grey">#f3f3f3</color>
+    <color name="light_grey_background">#DCDCDC</color>
+    <color name="grey_text_background">#afafaf</color>
+    <color name="charcoal_grey">#323a45</color>
+    <color name="switch_card_grey_background">#bbbbbb</color>
+    <!--<color name="grey_records_background">#f2f2f2</color>-->
+
+    <!-- white -->
+    <color name="pale_white">#fcfcfc</color>
+    <color name="white">#ffffff</color>
+
+    <!-- black -->
+    <color name="translucent_black">#E6323232</color>
+
+    <color name="transparent">#00ffffff</color>
+
+    <!-- white -->
+    <color name="translucent_blur">#10111111</color>
+
+    <!-- translucent tint white -->
+    <color name="translucent_tint">#08010101</color>
+
+    <!-- red -->
+    <color name="red_negative">#FF1744</color>
+    <color name="bright_red">#DF3034</color>
+
+    <!-- Crop -->
+    <color name="crop__button_bar">#f3f3f3</color>
+    <color name="crop__button_text">#666666</color>
+    <color name="crop__selector_pressed">#1a000000</color>
+    <color name="crop__selector_focused">#77000000</color>
+
+    <!-- Spot Check -->
+    <color name="spotcheck_red">#B71E2F</color>
+
+    <color name="text_color">#3D404B</color>
+    <color name="text_shade_color">#6F777B</color>
+    <color name="profile_background">#F8F8F8</color>
+</resources>

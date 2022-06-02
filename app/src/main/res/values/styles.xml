@@ -1,0 +1,125 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
+        <item name="actionMenuTextColor">@color/colorPrimary</item>
+        <!-- Tints the input fields like checkboxes and text fields -->
+        <item name="colorAccent">@color/colorPrimary</item>
+        <!-- Applies to views in their normal state. -->
+        <item name="colorControlNormal">@color/white</item>
+        <!-- Applies to views in their activated state (i.e checked or switches) -->
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+
+        <item name="android:background">@color/colorPrimary</item>
+
+        <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
+        <!--
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+        -->
+    </style>
+
+    <style name="text_title_all_caps_primary" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="text_title" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+    </style>
+
+    <style name="text_title_white" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+    </style>
+
+    <style name="text_normal" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+    </style>
+
+    <style name="text_normal_bold" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_normal_with_shade_color" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text_shade_color</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+    </style>
+
+    <style name="text_normal_all_caps" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="text_normal_primary" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+    </style>
+
+    <style name="text_small" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+    </style>
+
+    <style name="text_small_primary" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+    </style>
+
+    <style name="text_small_light_gray" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text_shade_color</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+    </style>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/MyCustomTextAppearance</item>
+    </style>
+
+    <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+
+    <style name="DatePickerDialogTheme" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+</resources>

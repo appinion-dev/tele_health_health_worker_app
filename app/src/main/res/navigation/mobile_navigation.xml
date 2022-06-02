@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.aah.sftelehealthworker.ui.login.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_otpFragment"
+            app:destination="@id/otpFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.aah.sftelehealthworker.ui.otp.OtpFragment"
+        android:label="otp_fragment"
+        tools:layout="@layout/otp_fragment">
+        <action
+            android:id="@+id/action_otpFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/otpFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.aah.sftelehealthworker.ui.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_verifyPatientMobileNumberFragment"
+            app:destination="@id/verifyPatientMobileNumberFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_splashFragment"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_patientProfileFragment"
+            app:destination="@id/patientProfileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_homeFragment_to_prescriptionViewFragment"
+            app:destination="@id/prescriptionViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyPatientMobileNumberFragment"
+        android:name="com.aah.sftelehealthworker.ui.verifyPatientMobileNumber.VerifyPatientMobileNumberFragment"
+        android:label="verify_patient_mobile_number_fragment"
+        tools:layout="@layout/verify_patient_mobile_number_fragment">
+        <action
+            android:id="@+id/action_verifyPatientMobileNumberFragment_to_verifyPatientOtpFragment"
+            app:destination="@id/verifyPatientOtpFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <!--        <action-->
+        <!--            android:id="@+id/action_verifyPatientMobileNumberFragment_to_homeFragment"-->
+        <!--            app:destination="@id/homeFragment"-->
+        <!--            app:popUpTo="@id/verifyPatientMobileNumberFragment"-->
+        <!--            app:popUpToInclusive="true" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/verifyPatientOtpFragment"
+        android:name="com.aah.sftelehealthworker.ui.verifyPatientOtp.VerifyPatientOtpFragment"
+        android:label="verify_patient_otp_fragment"
+        tools:layout="@layout/verify_patient_otp_fragment">
+        <action
+            android:id="@+id/action_verifyPatientOtpFragment_to_patientProfileCreateFragment"
+            app:destination="@id/patientProfileCreateFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+     />
+        <!--        <action-->
+        <!--            android:id="@+id/action_verifyPatientOtpFragment_to_verifyPatientMobileNumberFragment"-->
+        <!--            app:destination="@id/verifyPatientMobileNumberFragment" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/patientProfileCreateFragment"
+        android:name="com.aah.sftelehealthworker.ui.patientProfileCreate.PatientProfileCreateFragment"
+        android:label="patient_profile_create_fragment"
+        tools:layout="@layout/patient_profile_create_fragment">
+        <action
+            android:id="@+id/action_patientProfileCreateFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/patientProfileFragment"
+        android:name="com.aah.sftelehealthworker.ui.patientProfile.PatientProfileFragment"
+        android:label="patient_profile_fragment"
+        tools:layout="@layout/patient_profile_fragment">
+        <action
+            android:id="@+id/action_patientProfileFragment_to_doctorCategoryFragment"
+            app:destination="@id/doctorCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_patientProfileFragment_to_symptomsCheckerFragment"
+            app:destination="@id/symptomsCheckerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_patientProfileFragment_to_vitalsSubmitFragment"
+            app:destination="@id/vitalsSubmitFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_patientProfileFragment_to_vitalsInfoFragment"
+            app:destination="@id/vitalsInfoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_patientProfileFragment_to_reportSubmitFragment"
+            app:destination="@id/reportSubmitFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_patientProfileFragment_to_reportInfoFragment"
+            app:destination="@id/reportInfoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_patientProfileFragment_to_prescriptionViewFragment"
+            app:destination="@id/prescriptionViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.aah.sftelehealthworker.ui.splash.SplashFragment"
+        android:label="splash_fragment"
+        tools:layout="@layout/splash_fragment">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorCategoryFragment"
+        android:name="com.aah.sftelehealthworker.ui.doctorCategory.DoctorCategoryFragment"
+        android:label="Step 1: Select Category"
+        tools:layout="@layout/doctor_category_fragment">
+        <action
+            android:id="@+id/action_doctorCategoryFragment_to_doctorListFragment"
+            app:destination="@id/doctorListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorListFragment"
+        android:name="com.aah.sftelehealthworker.ui.doctorList.DoctorListFragment"
+        android:label="doctor_list_fragment"
+        tools:layout="@layout/doctor_list_fragment">
+        <action
+            android:id="@+id/action_doctorListFragment_to_doctorScheduleFragment"
+            app:destination="@id/doctorScheduleFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorScheduleFragment"
+        android:name="com.aah.sftelehealthworker.ui.doctorSchedule.DoctorScheduleFragment"
+        android:label="doctor_schedule_fragment"
+        tools:layout="@layout/doctor_schedule_fragment">
+        <action
+            android:id="@+id/action_doctorScheduleFragment_to_doctorProfileFragment"
+            app:destination="@id/doctorProfileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorProfileFragment"
+        android:name="com.aah.sftelehealthworker.ui.doctorProfile.DoctorProfileFragment"
+        android:label="doctor_profile_fragment"
+        tools:layout="@layout/doctor_profile_fragment">
+        <action
+            android:id="@+id/action_doctorProfileFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/symptomsCheckerFragment"
+        android:name="com.aah.sftelehealthworker.ui.symptomsChecker.SymptomsCheckerFragment"
+        android:label="symptoms_checker_fragment"
+        tools:layout="@layout/symptoms_checker_fragment">
+        <action
+            android:id="@+id/action_symptomsCheckerFragment_to_symptomsResultFragment"
+            app:destination="@id/symptomsResultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/symptomsResultFragment"
+        android:name="com.aah.sftelehealthworker.ui.symptomsChecker.SymptomsResultFragment"
+        android:label="symptoms_result_fragment"
+        tools:layout="@layout/symptoms_result_fragment">
+
+        <action
+            android:id="@+id/action_symptomsResultFragment_to_doctorCategoryFragment"
+            app:destination="@id/doctorCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/vitalsInfoFragment"
+        android:name="com.aah.sftelehealthworker.ui.patientProfile.fragments.vitals.VitalsInfoFragment"
+        android:label="vitals_info_fragment"
+        tools:layout="@layout/vitals_info_fragment" />
+    <fragment
+        android:id="@+id/vitalsSubmitFragment"
+        android:name="com.aah.sftelehealthworker.ui.patientProfile.fragments.vitals.VitalsSubmitFragment"
+        android:label="vitals_submit_fragment"
+        tools:layout="@layout/vitals_submit_fragment" />
+    <fragment
+        android:id="@+id/reportSubmitFragment"
+        android:name="com.aah.sftelehealthworker.ui.patientProfile.fragments.report.ReportSubmitFragment"
+        android:label="report_submit_fragment"
+        tools:layout="@layout/report_submit_fragment" />
+    <fragment
+        android:id="@+id/reportInfoFragment"
+        android:name="com.aah.sftelehealthworker.ui.patientProfile.fragments.report.ReportInfoFragment"
+        android:label="report_info_fragment"
+        tools:layout="@layout/report_info_fragment" />
+    <fragment
+        android:id="@+id/prescriptionViewFragment"
+        android:name="com.aah.sftelehealthworker.ui.patientProfile.fragments.PrescriptionViewFragment"
+        android:label="PrescriptionViewFragment">
+        <action
+            android:id="@+id/action_prescriptionViewFragment_to_resourceViewFragment"
+            app:destination="@id/resourceViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/resourceViewFragment"
+        android:name="com.aah.sftelehealthworker.ui.patientProfile.fragments.ResourceViewFragment"
+        android:label="ResourceViewFragment" />
+    <!--    <fragment-->
+    <!--        android:id="@+id/patientProfileFragment"-->
+    <!--        android:name="com.aah.sftelehealthworker.ui.patientProfileCreate.PatientProfileCreateFragment"-->
+    <!--        android:label="patient_profile_fragment"-->
+    <!--        tools:layout="@layout/patient_profile_create_fragment" />-->
+
+</navigation>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.patientProfile.fragments.report.ReportSubmitFragment">
+
+    <data class="ReportSubmitFragmentBinding"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/imageLabel"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/border_gray_filled_white_rectangle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/documentImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_camera"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/moneyReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/documentImage"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/please_click_here_to_add_photos" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/pdfUploadLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/border_filled_shape_white"
+            android:orientation="vertical"
+            android:padding="@dimen/std_dimen_4"
+            android:focusable="true"
+            android:clickable="true"
+            android:foreground="@drawable/ripple_dark_with_shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageLabel">
+
+            <TextView
+                android:id="@+id/pdfFileName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/select"
+                android:background="@null"
+                android:hint="@string/choose_pdf"
+                android:lines="1"
+                android:paddingStart="@dimen/std_dimen_12"
+                android:paddingTop="@dimen/std_dimen_4"
+                android:paddingEnd="@dimen/std_dimen_4"
+                android:paddingBottom="@dimen/std_dimen_4"
+                android:textSize="@dimen/text_size_12" />
+
+            <Button
+                android:id="@+id/select"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/button_filled_shape"
+                android:drawableEnd="@drawable/ic_attach_file"
+                android:gravity="end|center"
+                android:paddingStart="@dimen/std_dimen_12"
+                android:paddingEnd="@dimen/std_dimen_16"
+                android:text="@string/pdf_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/fileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:autofillHints=""
+            android:hint="@string/file_name"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pdfUploadLayout"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:autofillHints=""
+            android:hint="@string/note"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fileName"
+            tools:ignore="LabelFor" />
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:text="@string/upload"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/note" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

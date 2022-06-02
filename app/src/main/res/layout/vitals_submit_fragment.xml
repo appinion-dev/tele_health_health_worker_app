@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.patientProfile.fragments.vitals.VitalsSubmitFragment">
+
+    <data class="VitalsSubmitFragmentBinding"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_title"
+            android:layout_marginTop="32dp"
+            android:text="@string/vitals"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_normal"
+            android:layout_marginTop="4dp"
+            android:text="@string/input_patient_s_vital_sign_data"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_temperature"
+            app:layout_constraintBottom_toBottomOf="@+id/temperature"
+            app:layout_constraintEnd_toStartOf="@+id/temperature"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/temperature"
+            android:contentDescription="@string/image" />
+
+        <EditText
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_normal"
+            android:layout_marginTop="32dp"
+            android:autofillHints="Body temperature (e.g. 98)"
+            android:ems="10"
+            android:hint="@string/demo_temperature"
+            android:inputType="numberSigned"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pulse_rate"
+            app:layout_constraintBottom_toBottomOf="@+id/pulse"
+            app:layout_constraintEnd_toStartOf="@+id/pulse"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pulse"
+            android:contentDescription="@string/image" />
+
+        <EditText
+            android:id="@+id/pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_normal"
+            android:layout_marginTop="8dp"
+            android:autofillHints="Body temperature (e.g. 98)"
+            android:ems="10"
+            android:hint="@string/demo_pulse"
+            android:inputType="numberSigned"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temperature" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_temperature"
+            app:layout_constraintBottom_toBottomOf="@+id/respiration"
+            app:layout_constraintEnd_toStartOf="@+id/respiration"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/respiration"
+            android:contentDescription="@string/image" />
+
+        <EditText
+            android:id="@+id/respiration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_normal"
+            android:layout_marginTop="8dp"
+            android:autofillHints="Body temperature (e.g. 98)"
+            android:ems="10"
+            android:hint="@string/respiration_rate_e_g_12"
+            android:inputType="numberSigned"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pulse" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_respiration_rate"
+            app:layout_constraintBottom_toBottomOf="@+id/pressure"
+            app:layout_constraintEnd_toStartOf="@+id/pressure"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pressure"
+            android:contentDescription="@string/image" />
+
+        <EditText
+            android:id="@+id/pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_normal"
+            android:layout_marginTop="8dp"
+            android:autofillHints="@string/blood_pressure"
+            android:ems="10"
+            android:hint="@string/blood_pressure"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/respiration" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_normal"
+            android:src="@drawable/ic_blood_pressure"
+            app:layout_constraintBottom_toBottomOf="@+id/weight"
+            app:layout_constraintEnd_toStartOf="@+id/weight"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/weight"
+            android:contentDescription="@string/image" />
+
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_normal"
+            android:layout_marginTop="8dp"
+            android:autofillHints="Body weight (e.g. 65)"
+            android:ems="10"
+            android:hint="@string/body_weight_e_g_65"
+            android:inputType="numberSigned"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pressure" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_ice_cream"
+            app:layout_constraintBottom_toBottomOf="@+id/bloodSugar"
+            app:layout_constraintEnd_toStartOf="@+id/bloodSugar"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bloodSugar"
+            android:contentDescription="@string/image" />
+
+        <EditText
+            android:id="@+id/bloodSugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_normal"
+            android:layout_marginTop="8dp"
+            android:autofillHints="Blood sugar (e.g. 7)"
+            android:ems="10"
+            android:hint="Blood sugar (e.g. 7)"
+            android:inputType="numberSigned"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weight" />
+
+        <Button
+            android:id="@+id/done"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:text="@string/done"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bloodSugar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
