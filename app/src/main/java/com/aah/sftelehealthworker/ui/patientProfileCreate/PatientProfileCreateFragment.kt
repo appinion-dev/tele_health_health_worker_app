@@ -71,6 +71,17 @@ class PatientProfileCreateFragment : BaseFragment() {
 //        }
         mActivity = activity
 
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        navController = Navigation.findNavController(binding.root)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+
+
         //Spinner Section Start
         val financialCategory = arrayOf("Poor Patient", "Ultra Poor Patient")
         val myAdapter = ArrayAdapter<String>(
@@ -95,14 +106,6 @@ class PatientProfileCreateFragment : BaseFragment() {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {}
         }
         //Spinner Section End
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        navController = Navigation.findNavController(binding.root)
-        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
         initDistrict()
         initSuccessful()
