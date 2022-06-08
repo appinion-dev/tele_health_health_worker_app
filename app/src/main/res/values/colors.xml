@@ -26,8 +26,11 @@
 
     <!-- green -->
     <color name="spearmint">#29f070</color>
-    <color name="normal_green">#10BC52</color>
-
+    <color name="normal_green"> #00823B</color>
+    <color name="dark_green">#006435</color>
+    <color name="yellow"> #FFBF47</color>
+    <color name="normal_red">#DF3034</color>
+    <color name="dark_red"> #B10E1E</color>
     <!-- grey -->
     <color name="grey_text">#9e9e9e</color>
     <color name="brownish_grey">#6b6b6b</color>

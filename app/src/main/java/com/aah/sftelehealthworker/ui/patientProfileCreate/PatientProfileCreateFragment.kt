@@ -7,6 +7,8 @@ import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
@@ -30,6 +32,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.gson.Gson
 import gun0912.tedimagepicker.builder.TedImagePicker
 import id.zelory.compressor.Compressor
+import kotlinx.android.synthetic.main.patient_profile_create_fragment.*
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -49,7 +52,7 @@ class PatientProfileCreateFragment : BaseFragment() {
     private lateinit var patientProfile: PatientProfile
     private lateinit var navController: NavController
     private lateinit var uri: Uri
-
+    var data = "Select"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,6 +71,30 @@ class PatientProfileCreateFragment : BaseFragment() {
 //        }
         mActivity = activity
 
+        //Spinner Section Start
+        val financialCategory = arrayOf("Poor Patient", "Ultra Poor Patient")
+        val myAdapter = ArrayAdapter<String>(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            financialCategory
+        )
+        spinner.adapter = myAdapter
+        spinner.onItemSelectedListener = object :
+            AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                p0: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                p3: Long
+            ) {
+                data = financialCategory[position]
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {}
+        }
+        //Spinner Section End
         return binding.root
     }
 
