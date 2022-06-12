@@ -54,9 +54,9 @@ public interface Api {
 
     @Headers({"Accept: application/json",
             "Content-Type: application/json"})
-    @POST("healthworker/branchwisepatients/{branchId}")
+    @POST("healthworker/branchwisepatients")
     Call<PatientProfileModel> requestBranchWisePatients(@Header("authorization") String token,
-                                                        @Path("branchId") String branchId,
+                                                        @Query("branch_id") String branchId,
                                                         @Query("page") String page, @Query("size") String size,
                                                         @Query("phone") String phone);
 
