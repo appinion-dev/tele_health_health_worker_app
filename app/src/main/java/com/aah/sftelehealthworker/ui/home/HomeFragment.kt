@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
         val tabLayoutMediator = TabLayoutMediator(view.tabLayout,view.viewPager2, object :TabLayoutMediator.TabConfigurationStrategy{
             override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
                 if (position==0){
-                    tab.text = "Appoinements"
+                    tab.text = "Appointments"
                     tab.setIcon(R.drawable.ic_baseline_calendar_white_24)
                 }
                 else if(position==1){
@@ -77,11 +77,11 @@ class HomeFragment : Fragment() {
 //        viewPager.adapter = adapter
 //    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+//        // TODO: Use the ViewModel
+//    }
 
 //    private fun setupFragments() {
 //        val appointmentsFragment = AppointmentsFragment()

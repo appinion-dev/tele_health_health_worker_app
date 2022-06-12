@@ -52,7 +52,7 @@ class PatientProfileCreateFragment : BaseFragment() {
     private lateinit var patientProfile: PatientProfile
     private lateinit var navController: NavController
     private lateinit var uri: Uri
-    var data = "Select"
+    var data : String? = null;
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -162,6 +162,7 @@ class PatientProfileCreateFragment : BaseFragment() {
                                     binding.fullName.text.toString(),
                                     binding.age.text.toString(),
                                     getGender(),
+                                    //getSajidaBenificiary()
                                     getUpazillaId(),
                                     it1
                                 )
@@ -174,6 +175,7 @@ class PatientProfileCreateFragment : BaseFragment() {
                         binding.fullName.text.toString(),
                         binding.age.text.toString(),
                         getGender(),
+                        //getSajidaBenificiary()
                         getUpazillaId()
                     )
                 }
@@ -245,10 +247,37 @@ class PatientProfileCreateFragment : BaseFragment() {
             ""
         }
     }
+    private fun getSajidaBenificiary():String{
+        return if (binding.Yes.isChecked) {
+            "Yes"
+        } else if (binding.No.isChecked) {
+            "No"
+        } else {
+            ""
+        }
+    }
+
+    private fun isSajidaBenificiary(): Boolean {
+        return if (binding.radioSajidaBenificiary.checkedRadioButtonId == -1) {
+            AppUtils.message(binding.root, "Please select a Yes or No", context)
+            false
+        } else {
+            true
+        }
+    }
+
+    private fun isSelectCategory(): Boolean {
+        return if (data == null) {
+            AppUtils.message(binding.root, "Please select a Category", context)
+            false
+        } else {
+            true
+        }
+    }
 
     private fun isValid(): Boolean {
 //        return isGendernSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven()
-        return isGendernSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven()
+        return isGendernSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven() && isSajidaBenificiary()
 //        isGendernSelected()
 //        isNameGiven()
 //        isAgeGiven()
