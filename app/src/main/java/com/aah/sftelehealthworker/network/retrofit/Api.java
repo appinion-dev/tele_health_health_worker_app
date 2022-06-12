@@ -116,8 +116,8 @@ public interface Api {
 
     @Headers({"Accept: application/json",
             "Content-Type: application/json"})
-    @GET("doctor/getCategoryWiseDoctors/{categoryId}}")
-    Call<DoctorsModel> requestDoctorList(@Header("authorization") String token, @Path("categoryId") String categoryId, @Query("page") String page, @Query("size") String size);
+    @GET("doctor/getCategoryWiseDoctors")
+    Call<DoctorsModel> requestDoctorList(@Header("authorization") String token, @Query("category_id") String categoryId, @Query("page") String page, @Query("size") String size);
 
     @Headers({"Accept: application/json",
             "Content-Type: application/json"})
