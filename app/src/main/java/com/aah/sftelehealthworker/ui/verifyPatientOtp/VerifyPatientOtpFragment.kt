@@ -33,6 +33,7 @@ class VerifyPatientOtpFragment : Fragment() {
             return true
         }
     }
+
     private val waitingTime = 10000L
 
     private lateinit var viewModel: VerifyPatientOtpViewModel
@@ -56,20 +57,20 @@ class VerifyPatientOtpFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(VerifyPatientOtpViewModel::class.java)
 
         phoneNo = arguments?.getString(PHONE_NO).toString()
-        otpString = arguments?.getString(OTP).toString()
-//        view.confirm.setOnClickListener {
-//            gotoSelectPatient(view)
-//        }
+      //  otpString = arguments?.getString(OTP).toString()
+        binding.confirm.setOnClickListener {
+            gotoSelectPatient()
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        countDown(waitingTime)
+        //  countDown(waitingTime)
         navController = Navigation.findNavController(binding.root)
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
-        binding.otp.setText(otpString)
+        //  binding.otp.setText(otpString)
 
         binding.back.setOnClickListener {
             navController.popBackStack()
@@ -85,8 +86,8 @@ class VerifyPatientOtpFragment : Fragment() {
                 )
                 return@setOnClickListener
             }
-            viewModel.loadData(phoneNo, binding.otp.text.toString())
-//            gotoSelectPatient(view)
+            viewModel.loadData(binding.mobileNo.text.toString(), "111111")
+            gotoSelectPatient()
         }
 
         viewModel.setSuccessFullFalse()
@@ -109,7 +110,7 @@ class VerifyPatientOtpFragment : Fragment() {
     }
 
     private fun gotoSelectPatient() {
-        val bundle = bundleOf("phoneNo" to phoneNo)
+        val bundle = bundleOf(PHONE_NO to binding.mobileNo.text.toString())
 //        Navigation.findNavController(view).navigate(R.id.action_verifyPatientOtpFragment_to_patientProfileCreateFragment, bundle)
         navController.navigate(
             R.id.action_verifyPatientOtpFragment_to_patientProfileCreateFragment,
@@ -122,46 +123,46 @@ class VerifyPatientOtpFragment : Fragment() {
 //        viewModel = ViewModelProviders.of(this).get(VerifyPatientOtpViewModel::class.java)
     }
 
-    fun countDown(waitingTime: Long) {
-        object : CountDownTimer(waitingTime, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-
-                var millis = millisUntilFinished / 1000
-                if (millis > 0L) {
-                    val waitingTime = "${millis}  s"
-                    binding.waitingTime.text = waitingTime
-                } else {
-                    binding.resend.visibility = View.INVISIBLE
-                    binding.waitingTime.text = "Resend OTP"
-                    binding.waitingTime.setOnClickListener {
-                        countDown(waitingTime)
-                        binding.resend.visibility = View.VISIBLE
-                        //  viewModel.resendOtp(phoneNo)
-                    }
-                }
-                //here you can have your logic to set text to edittext
-            }
-
-            override fun onFinish() {
-//                mTextField.setText("done!")
-//                binding.resend.text = getString(R.string.resend_otp)
-                binding.resend.setOnClickListener {
-
-                }
-                binding.resend.visibility = View.INVISIBLE
-                binding.waitingTime.text = "Resend OTP"
-//                mTextField.setText("done!")
-//                binding.resend.text = getString(R.string.resend_otp)
-                binding.resend.setOnClickListener {
-
-                }
-                binding.waitingTime.setOnClickListener {
-                    countDown(waitingTime)
-                    binding.resend.visibility = View.VISIBLE
-                    //viewModel.resendOtp(phoneNo)
-                }
-            }
-        }.start()
-    }
+//    fun countDown(waitingTime: Long) {
+//        object : CountDownTimer(waitingTime, 1000) {
+//            override fun onTick(millisUntilFinished: Long) {
+//
+//                var millis = millisUntilFinished / 1000
+//                if (millis > 0L) {
+//                    val waitingTime = "${millis}  s"
+//                    binding.waitingTime.text = waitingTime
+//                } else {
+//                    binding.resend.visibility = View.INVISIBLE
+//                    binding.waitingTime.text = "Resend OTP"
+//                    binding.waitingTime.setOnClickListener {
+//                        countDown(waitingTime)
+//                        binding.resend.visibility = View.VISIBLE
+//                        //  viewModel.resendOtp(phoneNo)
+//                    }
+//                }
+//                //here you can have your logic to set text to edittext
+//            }
+//
+//            override fun onFinish() {
+////                mTextField.setText("done!")
+////                binding.resend.text = getString(R.string.resend_otp)
+//                binding.resend.setOnClickListener {
+//
+//                }
+//                binding.resend.visibility = View.INVISIBLE
+//                binding.waitingTime.text = "Resend OTP"
+////                mTextField.setText("done!")
+////                binding.resend.text = getString(R.string.resend_otp)
+//                binding.resend.setOnClickListener {
+//
+//                }
+//                binding.waitingTime.setOnClickListener {
+//                    countDown(waitingTime)
+//                    binding.resend.visibility = View.VISIBLE
+//                    //viewModel.resendOtp(phoneNo)
+//                }
+//            }
+//        }.start()
+//    }
 
 }

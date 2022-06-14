@@ -96,5 +96,6 @@
     <string name="file_name_validation_text">Enter file name</string>
     <string name="note_validation">please add note</string>
     <string name="report_save_msg">Report Submitted</string>
+    <string name="book_appointment">Book Appointment</string>
 
 </resources>

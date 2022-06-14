@@ -62,7 +62,7 @@ class SplashFragment : Fragment() {
 
     private fun gotoLogin() {
         Navigation.findNavController(binding.root)
-            .navigate(R.id.action_splashFragment_to_loginFragment)
+            .navigate(R.id.otpFragment)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

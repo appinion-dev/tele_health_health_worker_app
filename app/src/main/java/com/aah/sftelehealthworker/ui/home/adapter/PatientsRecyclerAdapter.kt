@@ -1,5 +1,6 @@
 package com.aah.sftelehealthworker.ui.home.adapter
 
+import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -42,7 +43,7 @@ class PatientsRecyclerAdapter(private val interaction: Interaction? = null) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is PatientsViewHolder -> {
-                holder.bind(differ.currentList.get(position))
+                holder.bind(differ.currentList[position])
             }
         }
     }
@@ -58,6 +59,7 @@ class PatientsRecyclerAdapter(private val interaction: Interaction? = null) :
     class PatientsViewHolder constructor(itemView: View, private val interaction: Interaction?) :
         RecyclerView.ViewHolder(itemView) {
 
+        @SuppressLint("SetTextI18n", "UseCompatLoadingForDrawables")
         fun bind(item: Patient) = with(itemView) {
             itemView.setOnClickListener {
                 interaction?.onItemSelected(adapterPosition, item)

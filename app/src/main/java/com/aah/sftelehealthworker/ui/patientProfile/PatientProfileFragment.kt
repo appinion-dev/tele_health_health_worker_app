@@ -36,6 +36,9 @@ class PatientProfileFragment : Fragment() {
     private lateinit var stringFragmentMap: MutableMap<String, Fragment>
     private lateinit var patientId: String
     private lateinit var patientPhone: String
+    private lateinit var patientName: String
+    private lateinit var patientAge: String
+    private lateinit var patientGender: String
 
     private lateinit var uri: Uri
 
@@ -50,6 +53,10 @@ class PatientProfileFragment : Fragment() {
 
         patientId = arguments?.getString("id").toString()
         patientPhone = arguments?.getString("phone").toString()
+        patientName = arguments?.getString("name").toString()
+        patientAge = arguments?.getString("age").toString()
+        patientGender = arguments?.getString("gender").toString()
+
         AppUtils.log("TestTry", Gson().toJson(patientId))
 
         return binding.root
@@ -104,21 +111,35 @@ class PatientProfileFragment : Fragment() {
     }
 
     private fun initProfile() {
-        viewModel.patientProfileMutableLiveData.observe(viewLifecycleOwner, Observer {
-            binding.name.text = it.firstName + " " + it.lastName
-            val age = it.age + " Years"
-            binding.age.text = age
-            binding.sex.text = it.gender
 
-            GlideApp
-                .with(this)
-                .load(it.image)
-                .circleCrop()
-                .placeholder(context?.getDrawable(R.drawable.person_male))
-                .error(context?.getDrawable(R.drawable.person_male))
-                .fallback(context?.getDrawable(R.drawable.person_male))
-                .into(binding.image)
-        })
+//        viewModel.patientProfileMutableLiveData.observe(viewLifecycleOwner, Observer {
+//            binding.name.text = it.firstName + " " + it.lastName
+//            val age = it.age + " Years"
+//            binding.age.text = age
+//            binding.sex.text = it.gender
+//
+//            GlideApp
+//                .with(this)
+//                .load(it.image)
+//                .circleCrop()
+//                .placeholder(context?.getDrawable(R.drawable.person_male))
+//                .error(context?.getDrawable(R.drawable.person_male))
+//                .fallback(context?.getDrawable(R.drawable.person_male))
+//                .into(binding.image)
+//        })
+        binding.name.text = patientName
+        val age = "$patientAge Years"
+        binding.age.text = age
+        binding.sex.text = patientGender
+
+        GlideApp
+            .with(this)
+            .load(R.drawable.person_male)
+            .circleCrop()
+            .placeholder(context?.getDrawable(R.drawable.person_male))
+            .error(context?.getDrawable(R.drawable.person_male))
+            .fallback(context?.getDrawable(R.drawable.person_male))
+            .into(binding.image)
     }
 
     private fun compraceImage() {

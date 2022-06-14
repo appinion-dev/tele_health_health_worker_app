@@ -75,11 +75,21 @@ class PatientProfile() : ResponseModel(),Parcelable {
     @Expose
     var id = 0
 
+    @SerializedName("patient_financial_category")
+    @Expose
+    var patientFinancialCategory = 0
+    @SerializedName("is_sf_benificiary")
+
+    @Expose
+    var is_sf_benificiary = 0
+
     @SerializedName("age")
     @Expose
     var age : String? = null
 
     constructor(parcel: Parcel) : this() {
+        patientFinancialCategory = parcel.readInt()
+        is_sf_benificiary = parcel.readInt()
         userId = parcel.readInt()
         phone = parcel.readString()
         gender = parcel.readString()
@@ -100,6 +110,8 @@ class PatientProfile() : ResponseModel(),Parcelable {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(is_sf_benificiary)
+        parcel.writeInt(patientFinancialCategory)
         parcel.writeInt(userId)
         parcel.writeString(phone)
         parcel.writeString(gender)

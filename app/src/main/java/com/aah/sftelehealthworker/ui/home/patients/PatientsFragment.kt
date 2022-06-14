@@ -74,18 +74,18 @@ class PatientsFragment : Fragment(), PatientsRecyclerAdapter.Interaction {
     }
 
     private fun initSearchView() {
-             binding.searchView.addTextChangedListener(object :TextWatcher{
-                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                 }
+        binding.searchView.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
 
-                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                     viewModel.loadData(s.toString())
-                 }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                viewModel.loadData(s.toString())
+            }
 
-                 override fun afterTextChanged(s: Editable?) {
-                 }
+            override fun afterTextChanged(s: Editable?) {
+            }
 
-             })
+        })
         binding.btnSearch.setOnClickListener {
             viewModel.loadData(binding.searchView.text.toString())
         }
@@ -110,13 +110,17 @@ class PatientsFragment : Fragment(), PatientsRecyclerAdapter.Interaction {
     }
 
     private fun gotoVerifyPatientNumber() {
+        // val bundle = bundleOf( "phone" to item.phone)
         Navigation.findNavController(binding.root)
-            .navigate(R.id.action_homeFragment_to_verifyPatientMobileNumberFragment)
+            .navigate(R.id.action_homeFragment_to_verifyPatientOtpFragment)
 //        Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_verifyPatientMobileNumberFragment)
     }
 
     private fun gotoPatientProfile(item: Patient) {
-        val bundle = bundleOf("id" to item.id, "phone" to item.phone)
+        val bundle = bundleOf("id" to item.id, "phone" to item.phone
+        ,"name" to item.firstName+item.lastName,
+            "gender" to item.gender,
+            "age" to item.age)
         Navigation.findNavController(binding.root)
             .navigate(R.id.action_homeFragment_to_patientProfileFragment, bundle)
     }

@@ -52,7 +52,7 @@ class PatientProfileCreateFragment : BaseFragment() {
     private lateinit var patientProfile: PatientProfile
     private lateinit var navController: NavController
     private lateinit var uri: Uri
-    var data : String? = null;
+    var data: String? = null;
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -98,11 +98,16 @@ class PatientProfileCreateFragment : BaseFragment() {
                 position: Int,
                 p3: Long
             ) {
+
                 data = financialCategory[position]
+
+
             }
+
             override fun onNothingSelected(p0: AdapterView<*>?) {
 
             }
+
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {}
         }
         //Spinner Section End
@@ -162,7 +167,8 @@ class PatientProfileCreateFragment : BaseFragment() {
                                     binding.fullName.text.toString(),
                                     binding.age.text.toString(),
                                     getGender(),
-                                    //getSajidaBenificiary()
+                                    getSajidaBenificiary(),
+                                    financialCategory(),
                                     getUpazillaId(),
                                     it1
                                 )
@@ -175,7 +181,8 @@ class PatientProfileCreateFragment : BaseFragment() {
                         binding.fullName.text.toString(),
                         binding.age.text.toString(),
                         getGender(),
-                        //getSajidaBenificiary()
+                        getSajidaBenificiary(),
+                        financialCategory(),
                         getUpazillaId()
                     )
                 }
@@ -247,14 +254,27 @@ class PatientProfileCreateFragment : BaseFragment() {
             ""
         }
     }
-    private fun getSajidaBenificiary():String{
-        return if (binding.Yes.isChecked) {
-            "Yes"
+
+    private fun getSajidaBenificiary(): Int {
+
+        var value: Int? = null
+        if (binding.Yes.isChecked) {
+            value = 1
         } else if (binding.No.isChecked) {
-            "No"
-        } else {
-            ""
+            value = 0
         }
+        return value!!
+    }
+
+    private fun financialCategory(): Int {
+        var value: Int? = null
+        if (data.equals("Poor Patient")) {
+            value = 1
+        }
+        if (data.equals("Ultra Poor Patient")) {
+            value = 0
+        }
+        return value!!
     }
 
     private fun isSajidaBenificiary(): Boolean {
@@ -277,7 +297,7 @@ class PatientProfileCreateFragment : BaseFragment() {
 
     private fun isValid(): Boolean {
 //        return isGendernSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven()
-        return isGendernSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven() && isSajidaBenificiary()
+        return isGenderSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven() && isSajidaBenificiary() && isSelectCategory()
 //        isGendernSelected()
 //        isNameGiven()
 //        isAgeGiven()
@@ -323,7 +343,7 @@ class PatientProfileCreateFragment : BaseFragment() {
         }
     }
 
-    private fun isGendernSelected(): Boolean {
+    private fun isGenderSelected(): Boolean {
         return if (binding.radioGroup.checkedRadioButtonId == -1) {
             AppUtils.message(binding.root, "Please select a Gender", context)
             false

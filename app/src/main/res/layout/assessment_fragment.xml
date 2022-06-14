@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/symptoms_checker"
+        android:text="@string/book_appointment"
         app:icon="@drawable/ic_scope_white"
         android:backgroundTint="@color/bright_red"
         android:textColor="@color/white"

@@ -39,13 +39,13 @@
         android:name="com.aah.sftelehealthworker.ui.home.HomeFragment"
         android:label="home_fragment"
         tools:layout="@layout/home_fragment">
-        <action
-            android:id="@+id/action_homeFragment_to_verifyPatientMobileNumberFragment"
-            app:destination="@id/verifyPatientMobileNumberFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+<!--        <action-->
+<!--            android:id="@+id/action_homeFragment_to_verifyPatientMobileNumberFragment"-->
+<!--            app:destination="@id/verifyPatientMobileNumberFragment"-->
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right" />-->
         <action
             android:id="@+id/action_homeFragment_to_splashFragment"
             app:destination="@id/splashFragment"
@@ -65,20 +65,23 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_verifyPatientOtpFragment"
+            app:destination="@id/verifyPatientOtpFragment" />
     </fragment>
     <fragment
         android:id="@+id/verifyPatientMobileNumberFragment"
         android:name="com.aah.sftelehealthworker.ui.verifyPatientMobileNumber.VerifyPatientMobileNumberFragment"
         android:label="verify_patient_mobile_number_fragment"
         tools:layout="@layout/verify_patient_mobile_number_fragment">
-        <action
-            android:id="@+id/action_verifyPatientMobileNumberFragment_to_verifyPatientOtpFragment"
-            app:destination="@id/verifyPatientOtpFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            />
+<!--        <action-->
+<!--            android:id="@+id/action_verifyPatientMobileNumberFragment_to_verifyPatientOtpFragment"-->
+<!--            app:destination="@id/verifyPatientOtpFragment"-->
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right"-->
+<!--            />-->
         <!--        <action-->
         <!--            android:id="@+id/action_verifyPatientMobileNumberFragment_to_homeFragment"-->
         <!--            app:destination="@id/homeFragment"-->
@@ -193,6 +196,9 @@
             app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
     </fragment>
     <fragment
         android:id="@+id/doctorCategoryFragment"

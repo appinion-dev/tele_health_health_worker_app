@@ -74,7 +74,7 @@ class AssessmentFragment : Fragment() , AssessmentRecyclerAdapter.Interaction {
 
     private fun gotoSymptomsChecker() {
         val bundle = bundleOf("patientId" to patientId)
-        navController.navigate(R.id.action_patientProfileFragment_to_symptomsCheckerFragment, bundle)
+        navController.navigate(R.id.action_patientProfileFragment_to_doctorCategoryFragment, bundle)
     }
 
     private fun getData() {

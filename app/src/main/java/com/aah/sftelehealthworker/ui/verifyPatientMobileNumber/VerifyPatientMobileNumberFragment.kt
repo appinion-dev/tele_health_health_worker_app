@@ -138,7 +138,7 @@ class VerifyPatientMobileNumberFragment : Fragment() {
         val bundle = bundleOf("phoneNo" to binding.mobileNo.text.toString(), "otp" to otpString)
 //        Navigation.findNavController(binding.root).navigate(R.id.action_verifyPatientMobileNumberFragment_to_verifyPatientOtpFragment, bundle)
         navController.navigate(
-            R.id.action_verifyPatientMobileNumberFragment_to_verifyPatientOtpFragment,
+            R.id.action_homeFragment_to_verifyPatientOtpFragment,
             bundle
         )
     }

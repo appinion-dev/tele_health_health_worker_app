@@ -31,7 +31,7 @@ class PatientProfileCreateViewModel : ViewModel() {
     }
 
 
-    fun loadData(phone: String, name: String, age: String, gender: String, upazillaId: String) {
+    fun loadData(phone: String, name: String, age: String, gender: String, financial_category :Int,is_sf_benificiary:Int,upazillaId: String) {
         refresh.value = true
         val patientProfile = PatientProfile()
         patientProfile.phone = phone
@@ -42,6 +42,8 @@ class PatientProfileCreateViewModel : ViewModel() {
         patientProfile.height = 0
         patientProfile.weight = 0
         patientProfile.bloodGroup = ""
+        patientProfile.patientFinancialCategory = 0
+        patientProfile.is_sf_benificiary = 0
 
         VerifyPatientService.requestCreatePatient(MutableLiveData(), getToken(), patientProfile)
             .observeForever { patientProfileModel ->
@@ -56,7 +58,7 @@ class PatientProfileCreateViewModel : ViewModel() {
             }
     }
 
-    fun loadData(phone: String, name: String, age: String, gender: String, upazillaId: String, file: File) {
+    fun loadData(phone: String, name: String, age: String, gender: String,  financial_category :Int,is_sf_benificiary:Int,upazillaId: String, file: File) {
 //        fun loadData(
 //            phone: String,
 //            name: String,
@@ -74,6 +76,8 @@ class PatientProfileCreateViewModel : ViewModel() {
         patientProfile.height = 0
         patientProfile.weight = 0
         patientProfile.bloodGroup = ""
+        patientProfile.patientFinancialCategory = 0
+        patientProfile.is_sf_benificiary = 0
 
         VerifyPatientService.requestCreatePatient(MutableLiveData(), getToken(), patientProfile)
             .observeForever { patientProfileModel ->

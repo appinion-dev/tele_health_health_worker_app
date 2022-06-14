@@ -1,134 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.verifyPatientOtp.VerifyPatientOtpFragment">
 
-    <data class="VerifyPatientOtpFragmentBinding"/>
+    <data class="VerifyPatientOtpFragmentBinding" />
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <!--<androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent">-->
 
-    <ImageView
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/std_margin_16"
-        android:src="@drawable/ic_baseline_arrow_back_primary_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/image" />
+    <!--    <ImageView-->
+    <!--        android:id="@+id/back"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:padding="@dimen/std_margin_16"-->
+    <!--        android:src="@drawable/ic_baseline_arrow_back_primary_24"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        android:contentDescription="@string/image" />-->
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2">
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/frameLayout"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/guideline2">-->
+
+    <!--        <ImageView-->
+    <!--            android:layout_width="96dp"-->
+    <!--            android:layout_height="96dp"-->
+    <!--            android:layout_marginBottom="24dp"-->
+    <!--            android:scaleType="fitXY"-->
+    <!--            app:srcCompat="@drawable/phone_icon_dark" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/progress"-->
+    <!--            android:layout_width="96dp"-->
+    <!--            android:layout_height="96dp"-->
+    <!--            app:srcCompat="@drawable/circule_for_phone" />-->
+
+    <!--    </FrameLayout>-->
+    <!--   -->
+    <!--    <TextView-->
+    <!--        android:id="@+id/verify"-->
+    <!--        style="@style/text_title"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:text="@string/verify"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView2"-->
+    <!--        style="@style/text_normal"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="4dp"-->
+    <!--        android:text="@string/mobile_number"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/verify" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView3"-->
+    <!--        style="@style/text_normal_with_shade_color"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:text="ENTER OTP SENT TO 01234567890"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/otp"-->
+    <!--        style="@style/text_normal"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Please enter OTP"-->
+    <!--        android:inputType="textPersonName"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/confirm"-->
+    <!--        android:layout_width="152dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="24dp"-->
+    <!--        android:text="CONFIRM"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/otp" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/resend"-->
+    <!--        style="@style/text_small_primary"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:text="WAITING FOR OTP"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/confirm" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/waitingTime"-->
+    <!--        style="@style/text_small_primary"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="14dp"-->
+    <!--        android:text="0s"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/resend" />-->
+
+    <!--    <androidx.constraintlayout.widget.Guideline-->
+    <!--        android:id="@+id/guideline2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintGuide_percent="0.10" />-->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_marginBottom="24dp"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/phone_icon_dark" />
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image"
+            android:padding="@dimen/std_margin_16"
+            android:src="@drawable/ic_baseline_arrow_back_primary_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/progress"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            app:srcCompat="@drawable/circule_for_phone" />
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2">
 
-    </FrameLayout>
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/image"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/phone_icon_dark" />
 
-    <TextView
-        android:id="@+id/verify"
-        style="@style/text_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/verify"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+            <ImageView
+                android:id="@+id/progress"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:contentDescription="@string/image"
+                app:srcCompat="@drawable/circule_for_phone" />
 
-    <TextView
-        android:id="@+id/textView2"
-        style="@style/text_normal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/mobile_number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verify" />
+        </FrameLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/text_normal_with_shade_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="ENTER OTP SENT TO 01234567890"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        <TextView
+            android:id="@+id/verify"
+            style="@style/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/verify_patient"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
-    <EditText
-        android:id="@+id/otp"
-        style="@style/text_normal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Please enter OTP"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/enter_mobile_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/verify" />
 
-    <Button
-        android:id="@+id/confirm"
-        android:layout_width="152dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="CONFIRM"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otp" />
+        <!--    <EditText-->
+        <!--        android:id="@+id/mobileNo"-->
+        <!--        style="@style/text_normal"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginTop="48dp"-->
+        <!--        android:ems="10"-->
+        <!--        android:hint="Please enter otp"-->
+        <!--        android:inputType="textPersonName"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
 
-    <TextView
-        android:id="@+id/resend"
-        style="@style/text_small_primary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="WAITING FOR OTP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirm" />
+        <TextView
+            android:id="@+id/mobileNoCode"
+            style="@style/text_normal_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+880"
+            app:layout_constraintBottom_toBottomOf="@+id/mobileNo"
+            app:layout_constraintEnd_toStartOf="@+id/mobileNo"
+            app:layout_constraintTop_toTopOf="@+id/mobileNo" />
 
-    <TextView
-        android:id="@+id/waitingTime"
-        style="@style/text_small_primary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="0s"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resend" />
+        <EditText
+            android:id="@+id/mobileNo"
+            style="@style/text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:autofillHints="Phone Number"
+            android:backgroundTint="@color/colorPrimary"
+            android:digits="0123456789"
+            android:ems="9"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxEms="9"
+            android:maxLines="1"
+            android:textCursorDrawable="@drawable/color_cursor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:ignore="LabelFor" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.10" />
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mobileNo" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.10" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
