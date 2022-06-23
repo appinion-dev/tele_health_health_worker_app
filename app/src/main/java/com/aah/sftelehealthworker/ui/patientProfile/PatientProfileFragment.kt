@@ -160,7 +160,7 @@ class PatientProfileFragment : Fragment() {
     }
 
     private fun setupFragments() {
-        val assessmentFragment = AssessmentFragment()
+       // val assessmentFragment = AssessmentFragment()
         val appointmentFragment = PatientAppointmentFragment()
         val vitalsFragment = VitalsFragment()
         val prescriptionFragment = PrescriptionsFragment()
@@ -171,7 +171,7 @@ class PatientProfileFragment : Fragment() {
 //            appointmentFragment.setPatientPhoneNo(patientPhone)
 //        }
 
-        assessmentFragment.setPatientId(patientId)
+        //assessmentFragment.setPatientId(patientId)
         appointmentFragment.setPreviousPhoneNo(patientPhone)
         appointmentFragment.setPatientPhoneNo(patientPhone)
         appointmentFragment.setPatientId(patientId)
@@ -181,10 +181,10 @@ class PatientProfileFragment : Fragment() {
         prescriptionFragment.setPatientId(patientId)
 
         val bundle = Bundle()
-        stringFragmentMap.put(
+    /*    stringFragmentMap.put(
             resources.getString(R.string.assessments),
             assessmentFragment as Fragment
-        )
+        )*/
         stringFragmentMap.put(
             resources.getString(R.string.appointments),
             appointmentFragment as Fragment
