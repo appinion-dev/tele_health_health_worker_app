@@ -135,8 +135,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sajida Benificiary ?"
+                        style="@style/text_normal"
+                        android:text="@string/sajida_benificiary"
                         android:textSize="@dimen/_10sdp"
+
                         android:textStyle="normal" />
 
 
@@ -183,6 +185,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/std_dimen_4"
+                        android:layout_marginStart="3dp"
                         android:text="@string/select_district"
                          />
 
@@ -209,6 +212,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/std_dimen_4"
+                        android:layout_marginStart="3dp"
                         android:text="@string/select_upazila"
                          />
 
@@ -222,16 +226,25 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
                     android:layout_gravity="start"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:orientation="vertical">
 
-                    <Spinner
+                    <!--                    <Spinner-->
+                    <!--                        android:id="@+id/spinner"-->
+                    <!--                        style="@style/Widget.AppCompat.Light.DropDownItem.Spinner"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="36dp"-->
+                    <!--                        />-->
+                    <androidx.appcompat.widget.AppCompatSpinner
                         android:id="@+id/spinner"
-                        style="@style/Widget.AppCompat.Light.DropDownItem.Spinner"
                         android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginBottom="12dp"
+                        android:textColor="@color/grey_text" />
 
                     <View
                         android:layout_width="match_parent"

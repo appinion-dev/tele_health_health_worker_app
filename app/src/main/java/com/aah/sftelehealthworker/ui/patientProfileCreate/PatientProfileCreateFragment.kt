@@ -272,7 +272,7 @@ class PatientProfileCreateFragment : BaseFragment() {
             value = 1
         }
         if (data.equals("Ultra Poor Patient")) {
-            value = 0
+            value = 2
         }
         return value!!
     }

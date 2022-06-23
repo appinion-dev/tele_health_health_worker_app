@@ -1,5 +1,6 @@
 package com.aah.sftelehealthworker.network.networkService
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.aah.sftelehealthworker.models.ResponseModel
 import com.aah.sftelehealthworker.models.home.PatientProfileModel
@@ -9,6 +10,7 @@ import com.aah.sftelehealthworker.models.newPatient.DistrictUpazillasModel
 import com.aah.sftelehealthworker.models.newPatient.PatientProfile
 import com.aah.sftelehealthworker.network.retrofit.ApiClient
 import com.aah.sftelehealthworker.utils.AppUtils
+import com.google.gson.Gson
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -124,6 +126,7 @@ object VerifyPatientService {
     @Synchronized
     fun requestCreatePatient(patientProfileModel: MutableLiveData<PatientProfileModel>, token :String, patientProfile :PatientProfile): MutableLiveData<PatientProfileModel> {
         val call: Call<PatientProfileModel> = ApiClient.getApi().requestCreatePatient(token, patientProfile)
+        Log.e("json",Gson().toJson(patientProfile))
         call.enqueue(object : Callback<PatientProfileModel> {
             override fun onResponse(call: Call<PatientProfileModel>?, response: Response<PatientProfileModel>?) {
                 if (response!!.isSuccessful && response.code() == 201) {
