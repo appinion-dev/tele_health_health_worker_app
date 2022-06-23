@@ -13,6 +13,7 @@ import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aah.sftelehealthworker.R
@@ -47,6 +48,7 @@ class PatientAppointmentFragment : BaseFragment(), AppointmentAdapter.Interactio
     private var glide: RequestManager? = null
     var filterList: ArrayList<Appointment>? = null
     var mainList: ArrayList<Appointment>? = null
+    private lateinit var navController: NavController
 
 //    private lateinit var navController: NavController
 
@@ -78,6 +80,7 @@ class PatientAppointmentFragment : BaseFragment(), AppointmentAdapter.Interactio
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         calendar = Calendar.getInstance()
+        navController = Navigation.findNavController(binding.root)
 
         filterList = ArrayList<Appointment>()
         mainList = ArrayList<Appointment>()
@@ -117,6 +120,15 @@ class PatientAppointmentFragment : BaseFragment(), AppointmentAdapter.Interactio
 //                gotoCategory()
 //            }
         }
+
+        binding.extendedFab.setOnClickListener {
+            gotoSymptomsChecker()
+        }
+    }
+
+    private fun gotoSymptomsChecker() {
+        val bundle = bundleOf("patientId" to patientId)
+        navController.navigate(R.id.action_patientProfileFragment_to_doctorCategoryFragment, bundle)
     }
 
     private fun gotoCategory() {
