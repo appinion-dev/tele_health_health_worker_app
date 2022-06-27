@@ -136,10 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/text_normal"
-                        android:text="@string/sajida_benificiary"
-                        android:textSize="@dimen/_10sdp"
-
-                        android:textStyle="normal" />
+                        android:text="@string/sajida_benificiary" />
 
 
                     <RadioGroup
@@ -170,58 +167,58 @@
                 </LinearLayout>
 
 
-                <LinearLayout
-                    android:id="@+id/districtLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="34dp"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginEnd="1dp"
-                    android:gravity="bottom"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/districtLabel"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="34dp"-->
+<!--                    android:layout_marginStart="1dp"-->
+<!--                    android:layout_marginEnd="1dp"-->
+<!--                    android:gravity="bottom"-->
+<!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:id="@+id/district"
-                        style="@style/text_normal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/std_dimen_4"
-                        android:layout_marginStart="3dp"
-                        android:text="@string/select_district"
-                         />
+<!--                    <TextView-->
+<!--                        android:id="@+id/district"-->
+<!--                        style="@style/text_normal"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginBottom="@dimen/std_dimen_4"-->
+<!--                        android:layout_marginStart="3dp"-->
+<!--                        android:text="@string/select_district"-->
+<!--                         />-->
 
-                    <View
-                        android:id="@+id/tile_divider"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/grey_text" />
-                </LinearLayout>
+<!--                    <View-->
+<!--                        android:id="@+id/tile_divider"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="1dp"-->
+<!--                        android:background="@color/grey_text" />-->
+<!--                </LinearLayout>-->
 
 
-                <LinearLayout
-                    android:id="@+id/upazilaLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginEnd="1dp"
-                    android:gravity="bottom"
-                    android:orientation="vertical"
-                    >
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/upazilaLabel"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:layout_marginEnd="1dp"-->
+<!--                    android:gravity="bottom"-->
+<!--                    android:orientation="vertical"-->
+<!--                    >-->
 
-                    <TextView
-                        android:id="@+id/upazila"
-                        style="@style/text_normal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/std_dimen_4"
-                        android:layout_marginStart="3dp"
-                        android:text="@string/select_upazila"
-                         />
+<!--                    <TextView-->
+<!--                        android:id="@+id/upazila"-->
+<!--                        style="@style/text_normal"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginBottom="@dimen/std_dimen_4"-->
+<!--                        android:layout_marginStart="3dp"-->
+<!--                        android:text="@string/select_upazila"-->
+<!--                         />-->
 
-                    <View
-                        android:id="@+id/upazila_divider"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/grey_text" />
-                </LinearLayout>
+<!--                    <View-->
+<!--                        android:id="@+id/upazila_divider"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="1dp"-->
+<!--                        android:background="@color/grey_text" />-->
+<!--                </LinearLayout>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -242,7 +239,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="20dp"
-                        android:layout_marginRight="4dp"
+
                         android:layout_marginBottom="12dp"
                         android:textColor="@color/grey_text" />
 

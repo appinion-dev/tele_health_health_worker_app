@@ -86,7 +86,7 @@ class PatientProfileCreateFragment : BaseFragment() {
         val financialCategory = arrayOf("Poor Patient", "Ultra Poor Patient")
         val myAdapter = ArrayAdapter<String>(
             requireContext(),
-            android.R.layout.simple_spinner_item,
+            R.layout.row_item,R.id.itemId,
             financialCategory
         )
         spinner.adapter = myAdapter
@@ -122,19 +122,19 @@ class PatientProfileCreateFragment : BaseFragment() {
             navController.popBackStack()
         }
 
-        binding.districtLabel.setOnClickListener {
-            if (::district.isInitialized) {
-                selectDistrict(district)
-            }
-        }
-
-        binding.upazilaLabel.setOnClickListener {
-            if (::upazilla.isInitialized) {
-                selectUpazillas(upazilla)
-            } else {
-                AppUtils.message(binding.root, "Please select district first", context)
-            }
-        }
+//        binding.districtLabel.setOnClickListener {
+//            if (::district.isInitialized) {
+//                selectDistrict(district)
+//            }
+//        }
+//
+//        binding.upazilaLabel.setOnClickListener {
+//            if (::upazilla.isInitialized) {
+//                selectUpazillas(upazilla)
+//            } else {
+//                AppUtils.message(binding.root, "Please select district first", context)
+//            }
+//        }
 
 
         binding.done.setOnClickListener {
@@ -169,7 +169,7 @@ class PatientProfileCreateFragment : BaseFragment() {
                                     getGender(),
                                     getSajidaBenificiary(),
                                     financialCategory(),
-                                    getUpazillaId(),
+                                    "10",
                                     it1
                                 )
                             }
@@ -183,7 +183,7 @@ class PatientProfileCreateFragment : BaseFragment() {
                         getGender(),
                         getSajidaBenificiary(),
                         financialCategory(),
-                        getUpazillaId()
+                        "10"
                     )
                 }
             }
@@ -236,14 +236,14 @@ class PatientProfileCreateFragment : BaseFragment() {
         })
     }
 
-    private fun getUpazillaId(): String {
-        var upazilaId = ""
-        upazilla.forEach {
-            if (it.name == binding.upazila.text)
-                upazilaId = it.id.toString()
-        }
-        return upazilaId
-    }
+//    private fun getUpazillaId(): String {
+//        var upazilaId = ""
+//        upazilla.forEach {
+//            if (it.name == binding.upazila.text)
+//                upazilaId = it.id.toString()
+//        }
+//        return upazilaId
+//    }
 
     private fun getGender(): String {
         return if (binding.male.isChecked) {
@@ -297,7 +297,7 @@ class PatientProfileCreateFragment : BaseFragment() {
 
     private fun isValid(): Boolean {
 //        return isGendernSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven()
-        return isGenderSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven() && isSajidaBenificiary() && isSelectCategory()
+        return isGenderSelected() && isNameGiven() && isAgeGiven()  && isSajidaBenificiary() && isSelectCategory()
 //        isGendernSelected()
 //        isNameGiven()
 //        isAgeGiven()
@@ -313,17 +313,17 @@ class PatientProfileCreateFragment : BaseFragment() {
         }
     }
 
-    private fun isUpazillaGiven(): Boolean {
-        return if (binding.upazila.text.isNullOrEmpty() || binding.upazila.text == resources.getString(
-                R.string.select_upazila
-            )
-        ) {
-            AppUtils.message(binding.root, "Please select a upazila", context)
-            false
-        } else {
-            true
-        }
-    }
+//    private fun isUpazillaGiven(): Boolean {
+//        return if (binding.upazila.text.isNullOrEmpty() || binding.upazila.text == resources.getString(
+//                R.string.select_upazila
+//            )
+//        ) {
+//            AppUtils.message(binding.root, "Please select a upazila", context)
+//            false
+//        } else {
+//            true
+//        }
+//    }
 
     private fun isAgeGiven(): Boolean {
         return if (binding.age.text.isNullOrEmpty()) {
@@ -371,51 +371,51 @@ class PatientProfileCreateFragment : BaseFragment() {
         )
     }
 
-    private fun selectDistrict(district: List<District>) {
-//        val checkedItem = -1
-        val districtList = mutableListOf<String>()
-        district.forEach { district ->
-            district.name?.let { name -> districtList.add(name) }
-        }
+//    private fun selectDistrict(district: List<District>) {
+////        val checkedItem = -1
+//        val districtList = mutableListOf<String>()
+//        district.forEach { district ->
+//            district.name?.let { name -> districtList.add(name) }
+//        }
+//
+//        context?.let {
+//            MaterialAlertDialogBuilder(it)
+//                .setTitle(resources.getString(R.string.select_district))
+//                .setItems(districtList.toTypedArray()) { dialog, which ->
+//                    binding.district.text = districtList[which]
+//                    findUpazillas(district, districtList[which])
+//                }
+//                .show()
+//        }
+//    }
 
-        context?.let {
-            MaterialAlertDialogBuilder(it)
-                .setTitle(resources.getString(R.string.select_district))
-                .setItems(districtList.toTypedArray()) { dialog, which ->
-                    binding.district.text = districtList[which]
-                    findUpazillas(district, districtList[which])
-                }
-                .show()
-        }
-    }
+//    private fun findUpazillas(district: List<District>, districtName: String) {
+////        var districtTemp = District()
+//        district.forEach {
+//            if (it.name == districtName) {
+////                districtTemp = it
+//                it.upazillas?.let { it1 ->
+//                    upazilla = it1
+//                    selectUpazillas(it1)
+//                }
+//            }
+//        }
+//    }
 
-    private fun findUpazillas(district: List<District>, districtName: String) {
-//        var districtTemp = District()
-        district.forEach {
-            if (it.name == districtName) {
-//                districtTemp = it
-                it.upazillas?.let { it1 ->
-                    upazilla = it1
-                    selectUpazillas(it1)
-                }
-            }
-        }
-    }
-
-    private fun selectUpazillas(upazilla: List<Upazilla>) {
-        val upazillaList = mutableListOf<String>()
-        upazilla.forEach { upazilla ->
-            upazilla.name?.let { name -> upazillaList.add(name) }
-        }
-        context?.let {
-            MaterialAlertDialogBuilder(it)
-                .setTitle(resources.getString(R.string.select_upazila))
-                .setItems(upazillaList.toTypedArray()) { dialog, which ->
-                    binding.upazila.text = upazillaList[which]
-                }
-                .show()
-        }
-    }
+//    private fun selectUpazillas(upazilla: List<Upazilla>) {
+//        val upazillaList = mutableListOf<String>()
+//        upazilla.forEach { upazilla ->
+//            upazilla.name?.let { name -> upazillaList.add(name) }
+//        }
+//        context?.let {
+//            MaterialAlertDialogBuilder(it)
+//                .setTitle(resources.getString(R.string.select_upazila))
+//                .setItems(upazillaList.toTypedArray()) { dialog, which ->
+//                    binding.upazila.text = upazillaList[which]
+//                }
+//                .show()
+//        }
+//    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
