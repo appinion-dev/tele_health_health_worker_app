@@ -16,14 +16,20 @@ class DoctorListViewModel : ViewModel() {
     val message = MutableLiveData<String>()
     val doctorMutableLiveData = MutableLiveData<List<Doctor>>()
 
-    fun loadData(categoryId : String) {
+    fun loadData(categoryId: String) {
         refresh.value = true
-        AppointmentService.requestDoctorList(MutableLiveData(), getToken(), categoryId, PAGE_NO, SIZE).observeForever { doctorsModel ->
+        AppointmentService.requestDoctorList(
+            MutableLiveData(),
+            getToken(),
+            categoryId,
+            getBranchId(),
+            PAGE_NO,
+            SIZE
+        ).observeForever { doctorsModel ->
             if (doctorsModel.status == 200) {
                 doctorMutableLiveData.value = doctorsModel.doctors
                 isSuccessFull.value = true
-            }
-            else {
+            } else {
                 isSuccessFull.value = false
                 message.value = doctorsModel.error
             }
@@ -31,7 +37,13 @@ class DoctorListViewModel : ViewModel() {
         }
     }
 
-    private fun getToken():String{
-        return "Bearer " + AppDatabase.getAppDatabase(MyApplication.getMyApplicationInstance()).daoAccess().getToken()
+    private fun getToken(): String {
+        return "Bearer " + AppDatabase.getAppDatabase(MyApplication.getMyApplicationInstance())
+            .daoAccess().getToken()
+    }
+
+    private fun getBranchId(): String {
+        return AppDatabase.getAppDatabase(MyApplication.getMyApplicationInstance()).daoAccess()
+            .getBranchId().toString()
     }
 }

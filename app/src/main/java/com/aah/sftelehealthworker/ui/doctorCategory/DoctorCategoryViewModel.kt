@@ -32,4 +32,7 @@ class DoctorCategoryViewModel : ViewModel() {
     private fun getToken():String{
         return "Bearer " + AppDatabase.getAppDatabase(MyApplication.getMyApplicationInstance()).daoAccess().getToken()
     }
+    private fun getBranchId():String{
+        return AppDatabase.getAppDatabase(MyApplication.getMyApplicationInstance()).daoAccess().getBranchId().toString()
+    }
 }

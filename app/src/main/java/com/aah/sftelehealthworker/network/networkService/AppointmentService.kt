@@ -45,9 +45,9 @@ object AppointmentService {
     }
 
     @Synchronized
-    fun requestDoctorList(doctorsModel: MutableLiveData<DoctorsModel>, token :String, categoryId : String, pageNo:String, size: String): MutableLiveData<DoctorsModel> {
+    fun requestDoctorList(doctorsModel: MutableLiveData<DoctorsModel>, token :String, categoryId : String, pageNo:String, size: String,branchID:String): MutableLiveData<DoctorsModel> {
 
-        val call: Call<DoctorsModel> = ApiClient.getApi().requestDoctorList(token, categoryId, pageNo, size)
+        val call: Call<DoctorsModel> = ApiClient.getApi().requestDoctorList(token, categoryId,branchID, pageNo, size)
         call.enqueue(object : Callback<DoctorsModel> {
             override fun onResponse(call: Call<DoctorsModel>?, response: Response<DoctorsModel>?) {
                 if (response!!.isSuccessful && response.code() == 200) {
