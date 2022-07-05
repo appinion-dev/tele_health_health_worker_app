@@ -65,11 +65,11 @@ class ReportsFragment : Fragment(), ReportRecyclerAdapter.Interaction {
             if (isOpen) {
                 isOpen = false
                 binding.addImage.visibility = View.GONE
-                binding.addPdf.visibility = View.GONE
+              //  binding.addPdf.visibility = View.GONE
             } else {
                 isOpen = true
                 binding.addImage.visibility = View.VISIBLE
-                binding.addPdf.visibility = View.VISIBLE
+              //  binding.addPdf.visibility = View.VISIBLE
 
                 binding.addImage.setOnClickListener {
                     gotoSubmitReport("image")
