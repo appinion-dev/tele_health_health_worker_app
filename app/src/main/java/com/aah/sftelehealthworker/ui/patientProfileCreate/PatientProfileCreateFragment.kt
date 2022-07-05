@@ -1,5 +1,7 @@
 package com.aah.sftelehealthworker.ui.patientProfileCreate
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -7,6 +9,7 @@ import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -28,7 +31,6 @@ import com.aah.sftelehealthworker.ui.MainActivity
 import com.aah.sftelehealthworker.utils.AppUtils
 import com.aah.sftelehealthworker.utils.GlideApp
 import com.aah.sftelehealthworker.utils.PHONE_NO
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.gson.Gson
 import gun0912.tedimagepicker.builder.TedImagePicker
 import id.zelory.compressor.Compressor
@@ -187,6 +189,7 @@ class PatientProfileCreateFragment : BaseFragment() {
                     )
                 }
             }
+            hideKeyboard();
         }
     }
 
@@ -420,6 +423,20 @@ class PatientProfileCreateFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 //        viewModel = ViewModelProviders.of(this).get(PatientProfileCreateViewModel::class.java)
+    }
+
+    @SuppressLint("UseRequireInsteadOfGet")
+    fun hideKeyboard() {
+        // Check if no view has focus:
+        val view = activity!!.currentFocus
+        if (view != null) {
+            val inputManager =
+                activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(
+                view.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
+        }
     }
 
 }

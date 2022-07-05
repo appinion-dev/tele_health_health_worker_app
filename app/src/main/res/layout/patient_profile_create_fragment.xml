@@ -79,6 +79,7 @@
                     android:id="@+id/male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
                     android:text="@string/male" />
 
                 <RadioButton
@@ -86,6 +87,7 @@
                     style="@style/Widget.MaterialComponents.CompoundButton.RadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
                     android:text="@string/female" />
             </RadioGroup>
 
@@ -150,6 +152,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="@dimen/_10sdp"
+                            android:imeOptions="actionNext"
                             android:text="Yes" />
 
                         <RadioButton
@@ -158,6 +161,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="@dimen/_10sdp"
+                            android:imeOptions="actionNext"
                             android:text="No" />
                     </RadioGroup>
                     <View
@@ -239,8 +243,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="20dp"
-
                         android:layout_marginBottom="12dp"
+                        android:imeOptions="actionDone"
                         android:textColor="@color/grey_text" />
 
                     <View

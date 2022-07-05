@@ -91,7 +91,7 @@ class VitalsFragment : BaseFragment(), VitalsRecyclerAdapter.Interaction {
         viewModel.vitalMutableLiveData.observe(viewLifecycleOwner, Observer {
             hideProgressDialog()
             if (it.isNullOrEmpty()) {
-                AppUtils.message(binding.root, "No vitals found", context)
+               // AppUtils.message(binding.root, "No vitals found", context)
                 vitalsRecyclerAdapter.submitList(emptyList())
             } else {
                 vitalsRecyclerAdapter.submitList(it)
