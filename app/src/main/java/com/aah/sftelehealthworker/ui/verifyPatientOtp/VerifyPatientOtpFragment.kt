@@ -146,9 +146,7 @@ class VerifyPatientOtpFragment : Fragment() {
     }
 
     private fun gotoSelectPatient() {
-        if (binding.mobileNo.text.toString().length < 10) {
-            AppUtils.message(binding.root, "Number can't be less then 10", Color.WHITE, Color.RED)
-        } else {
+
             val bundle = bundleOf(PHONE_NO to binding.mobileNo.text.toString())
 
 //        Navigation.findNavController(view).navigate(R.id.action_verifyPatientOtpFragment_to_patientProfileCreateFragment, bundle)
@@ -156,7 +154,7 @@ class VerifyPatientOtpFragment : Fragment() {
                 R.id.action_verifyPatientOtpFragment_to_patientProfileCreateFragment,
                 bundle
             )
-        }
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
