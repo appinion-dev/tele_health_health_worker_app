@@ -91,7 +91,7 @@ class DoctorListFragment : Fragment(), DoctorsRecyclerAdapter.Interaction {
 
         viewModel.doctorMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it.isNullOrEmpty()) {
-                AppUtils.message(binding.root, "No Data found",context)
+               // AppUtils.message(binding.root, "No Data found",context)
                 doctorsRecyclerAdapter.submitList(emptyList())
             } else {
                 doctorsRecyclerAdapter.submitList(it)

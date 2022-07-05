@@ -195,7 +195,7 @@ class PatientAppointmentFragment : BaseFragment(), AppointmentAdapter.Interactio
                     binding.refresh.isRefreshing = false
                     if (dataResource.data!!.appointments.isNullOrEmpty()) {
                         scheduleRecyclerAdapter.submitList(emptyList())
-                        AppUtils.message(binding.root, "No Appointment Available", context)
+                      //  AppUtils.message(binding.root, "No Appointment Available", context)
                     } else {
                         if (!mainList!!.isEmpty()) {
                             mainList!!.clear()

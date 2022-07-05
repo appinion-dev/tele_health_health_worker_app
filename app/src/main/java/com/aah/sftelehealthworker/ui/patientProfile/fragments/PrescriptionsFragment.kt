@@ -85,7 +85,7 @@ class PrescriptionsFragment : Fragment(), PrescriptionsRecyclerAdapter.Interacti
 
         viewModel.prescriptionsMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it.isNullOrEmpty()) {
-                AppUtils.message(binding.root, "No prescription Found", context)
+                //AppUtils.message(binding.root, "No prescription Found", context)
                 prescriptionsRecyclerAdapter.submitList(emptyList())
             } else {
                 prescriptionsRecyclerAdapter.submitList(it)

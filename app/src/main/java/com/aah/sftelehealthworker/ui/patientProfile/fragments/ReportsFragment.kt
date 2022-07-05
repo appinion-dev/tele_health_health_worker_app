@@ -107,7 +107,7 @@ class ReportsFragment : Fragment(), ReportRecyclerAdapter.Interaction {
 
         viewModel.reportMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it.isNullOrEmpty()) {
-                AppUtils.message(binding.root, "No report found", context)
+               // AppUtils.message(binding.root, "No report found", context)
                 reportRecyclerAdapter.submitList(emptyList())
             } else {
                 reportRecyclerAdapter.submitList(it)
