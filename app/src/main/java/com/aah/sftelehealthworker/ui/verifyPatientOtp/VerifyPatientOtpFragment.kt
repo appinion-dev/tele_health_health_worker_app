@@ -118,7 +118,7 @@ class VerifyPatientOtpFragment : Fragment() {
 //                return@setOnClickListener
 //            }
             if (binding.mobileNo.text.toString().isEmpty()) {
-                Snackbar.make(binding.root, "Enter Number", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.root, "Enter Patient SDO ID", Snackbar.LENGTH_LONG).show()
             } else {
                 viewModel.loadData(binding.mobileNo.text.toString(), "111111")
                 gotoSelectPatient()

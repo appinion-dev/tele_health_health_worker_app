@@ -84,7 +84,7 @@ class VerifyPatientMobileNumberFragment : Fragment() {
                 return@setOnClickListener
 
             }
-            if (!NumberValidation.isValid(binding.mobileNo.text.toString())) {
+            if (binding.mobileNo.text.toString() == "") {
                 AppUtils.message(
                     view,
                     "Please input a valid mobile number!",

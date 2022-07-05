@@ -167,6 +167,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:visibility="gone"
                         android:background="@color/grey_text" />
                 </LinearLayout>
 
@@ -245,11 +246,13 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="12dp"
                         android:imeOptions="actionDone"
+                        android:visibility="gone"
                         android:textColor="@color/grey_text" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:visibility="gone"
                         android:background="@color/grey_text" />
                 </LinearLayout>
             </LinearLayout>

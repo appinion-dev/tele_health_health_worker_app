@@ -87,6 +87,7 @@
         android:layout_height="wrap_content"
         style="@style/text_normal_primary"
         android:text="+880"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/mobileNo"
         app:layout_constraintEnd_toStartOf="@+id/mobileNo"
         app:layout_constraintTop_toTopOf="@+id/mobileNo" />
@@ -102,8 +103,7 @@
         android:ems="9"
         android:maxEms="9"
         android:maxLines="1"
-        android:inputType="phone"
-        android:digits="0123456789"
+        android:inputType="text"
         android:imeOptions="actionDone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

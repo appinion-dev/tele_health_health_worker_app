@@ -4,7 +4,7 @@
     <string name="image">image</string>
     <string name="health_worker_app">Health Worker App</string>
     <string name="login">Login</string>
-    <string name="enter_your_mobile_number">ENTER YOUR MOBILE NUMBER</string>
+    <string name="enter_your_mobile_number">ENTER YOUR SDO ID</string>
     <string name="verify">Verify</string>
     <string name="mobile_number">MOBILE NUMBER</string>
     <string name="appointments">Appointments</string>
@@ -16,8 +16,8 @@
     <string name="demo_date">May 14, 2020 | 04.00 PM</string>
     <string name="demo_request_msg">Callback Requested to Dr. Arman Hossain</string>
     <string name="verify_patient">Verify Patient</string>
-    <string name="enter_mobile_number">ENTER MOBILE NUMBER</string>
-    <string name="send_otp">SEND OTP</string>
+    <string name="enter_mobile_number">ENTER PATIENT SDO ID</string>
+    <string name="send_otp">Next</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="full_name">Full Name</string>
