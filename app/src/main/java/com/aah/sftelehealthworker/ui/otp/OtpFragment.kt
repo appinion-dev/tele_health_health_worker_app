@@ -1,11 +1,14 @@
 package com.aah.sftelehealthworker.ui.otp
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -61,6 +64,7 @@ class OtpFragment : Fragment() {
 
         view.next.setOnClickListener {
             viewModel.loadData(binding.mobileNo.text.toString(), "111111")
+            hideKeyboard()
         }
 
         viewModel.isSuccessFull.observe(viewLifecycleOwner, Observer {
@@ -125,5 +129,17 @@ class OtpFragment : Fragment() {
 //        viewModel = ViewModelProviders.of(this).get(OtpViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
+    @SuppressLint("UseRequireInsteadOfGet")
+    fun hideKeyboard() {
+        // Check if no view has focus:
+        val view = activity!!.currentFocus
+        if (view != null) {
+            val inputManager =
+                activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(
+                view.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
+        }
+    }
 }

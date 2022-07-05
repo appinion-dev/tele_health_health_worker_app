@@ -2,8 +2,8 @@ package com.aah.sftelehealthworker.utils
 
 import android.os.Environment
 
-const val BASE_URL = "http://192.168.3.13:1337/api/v2/"
-//const val BASE_URL = "https://telehealthapi.appinionbd.com/api/v2/"
+//const val BASE_URL = "http://192.168.3.13:1337/api/v2/"
+const val BASE_URL = "https://telehealthapi.appinionbd.com/api/v2/"
 const val CLIENT_SECRET = "Bearer p2S80tdxdrVjGC9F6wbn"
 const val GRANT_TYPE = "password"
 const val CLIENT_ID = "1"
