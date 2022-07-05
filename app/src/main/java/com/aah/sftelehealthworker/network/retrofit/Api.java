@@ -139,8 +139,8 @@ public interface Api {
 
     @Headers({"Accept: application/json",
             "Content-Type: application/json"})
-    @GET("patient/getVitals/{patientId}")
-    Call<VitalsModel> requestVitals(@Header("authorization") String token, @Path("patientId") String patientId);
+    @GET("patient/getVitals")
+    Call<VitalsModel> requestVitals(@Header("authorization") String token, @Query("patientId") String patientId);
 
     //@api: {get} /prescription/hwGetPatientPrescriptions?patientId=59302
     @Headers({"Accept: application/json",
@@ -150,8 +150,8 @@ public interface Api {
 
     @Headers({"Accept: application/json",
             "Content-Type: application/json"})
-    @GET("patient/getReports/{patientId}")
-    Call<ReportsModel> requestReports(@Header("authorization") String token, @Path("patientId") String patientId);
+    @GET("patient/getReports")
+    Call<ReportsModel> requestReports(@Header("authorization") String token, @Query("id") String patientId);
 
 
     @Headers({"Accept: application/json",

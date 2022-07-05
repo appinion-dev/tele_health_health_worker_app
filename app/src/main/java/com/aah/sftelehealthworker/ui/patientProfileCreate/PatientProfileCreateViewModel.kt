@@ -31,19 +31,20 @@ class PatientProfileCreateViewModel : ViewModel() {
     }
 
 
-    fun loadData(phone: String, name: String, age: String, gender: String, financial_category :Int,is_sf_benificiary:Int,upazillaId: String) {
+    fun loadData(phone: String, name: String, age: String, gender: String, is_sf_benificiary:Int,financial_category :Int,upazillaId: String) {
         refresh.value = true
         val patientProfile = PatientProfile()
         patientProfile.phone = phone
         patientProfile.name = name
         patientProfile.age = age
         patientProfile.gender = gender
+        patientProfile.is_sf_benificiary = is_sf_benificiary
+        patientProfile.patientFinancialCategory = financial_category
         patientProfile.upazillaId = upazillaId.toInt()
         patientProfile.height = 0
         patientProfile.weight = 0
         patientProfile.bloodGroup = ""
-        patientProfile.patientFinancialCategory = 0
-        patientProfile.is_sf_benificiary = 0
+
 
         VerifyPatientService.requestCreatePatient(MutableLiveData(), getToken(), patientProfile)
             .observeForever { patientProfileModel ->
@@ -58,7 +59,7 @@ class PatientProfileCreateViewModel : ViewModel() {
             }
     }
 
-    fun loadData(phone: String, name: String, age: String, gender: String,  financial_category :Int,is_sf_benificiary:Int,upazillaId: String, file: File) {
+    fun loadData(phone: String, name: String, age: String, gender: String, is_sf_benificiary:Int, financial_category :Int,upazillaId: String, file: File) {
 //        fun loadData(
 //            phone: String,
 //            name: String,
@@ -72,12 +73,13 @@ class PatientProfileCreateViewModel : ViewModel() {
         patientProfile.name = name
         patientProfile.age = age
         patientProfile.gender = gender
+        patientProfile.is_sf_benificiary = is_sf_benificiary
+        patientProfile.patientFinancialCategory = financial_category
         patientProfile.upazillaId = upazillaId.toInt()
         patientProfile.height = 0
         patientProfile.weight = 0
         patientProfile.bloodGroup = ""
-        patientProfile.patientFinancialCategory = 0
-        patientProfile.is_sf_benificiary = 0
+
 
         VerifyPatientService.requestCreatePatient(MutableLiveData(), getToken(), patientProfile)
             .observeForever { patientProfileModel ->

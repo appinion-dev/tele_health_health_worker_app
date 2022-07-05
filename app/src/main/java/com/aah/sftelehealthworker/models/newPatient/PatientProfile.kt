@@ -73,7 +73,7 @@ class PatientProfile() : ResponseModel(),Parcelable {
 
     @SerializedName("id")
     @Expose
-    var id = 0
+    var id: String? = null
 
     @SerializedName("patient_financial_category")
     @Expose
@@ -88,8 +88,7 @@ class PatientProfile() : ResponseModel(),Parcelable {
     var age : String? = null
 
     constructor(parcel: Parcel) : this() {
-        patientFinancialCategory = parcel.readInt()
-        is_sf_benificiary = parcel.readInt()
+
         userId = parcel.readInt()
         phone = parcel.readString()
         gender = parcel.readString()
@@ -105,13 +104,14 @@ class PatientProfile() : ResponseModel(),Parcelable {
         branchId = parcel.readInt()
         createdAt = parcel.readString()
         updatedAt = parcel.readString()
-        id = parcel.readInt()
+        id = parcel.readString()
         age = parcel.readString()
+        patientFinancialCategory = parcel.readInt()
+        is_sf_benificiary = parcel.readInt()
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(is_sf_benificiary)
-        parcel.writeInt(patientFinancialCategory)
+
         parcel.writeInt(userId)
         parcel.writeString(phone)
         parcel.writeString(gender)
@@ -127,8 +127,10 @@ class PatientProfile() : ResponseModel(),Parcelable {
         parcel.writeInt(branchId)
         parcel.writeString(createdAt)
         parcel.writeString(updatedAt)
-        parcel.writeInt(id)
+        parcel.writeString(id)
         parcel.writeString(age)
+        parcel.writeInt(patientFinancialCategory)
+        parcel.writeInt(is_sf_benificiary)
     }
 
     override fun describeContents(): Int {
