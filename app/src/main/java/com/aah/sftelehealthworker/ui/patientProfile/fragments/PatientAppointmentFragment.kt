@@ -161,8 +161,8 @@ class PatientAppointmentFragment : BaseFragment(), AppointmentAdapter.Interactio
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-               // filterList = getFilterData(mainList!!, s!!)
-              //  scheduleRecyclerAdapter.submitList(filterList!!)
+               filterList = getFilterData(mainList!!, s!!)
+                scheduleRecyclerAdapter.submitList(filterList!!)
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -197,9 +197,10 @@ class PatientAppointmentFragment : BaseFragment(), AppointmentAdapter.Interactio
                         scheduleRecyclerAdapter.submitList(emptyList())
                       //  AppUtils.message(binding.root, "No Appointment Available", context)
                     } else {
-                        if (!mainList!!.isEmpty()) {
+                        if (mainList!!.isNotEmpty()) {
                             mainList!!.clear()
                         }
+                        mainList!!.addAll(dataResource.data!!.appointments)
                         scheduleRecyclerAdapter.submitList(dataResource.data!!.appointments)
                         binding.recyclerView.scheduleLayoutAnimation()
                     }

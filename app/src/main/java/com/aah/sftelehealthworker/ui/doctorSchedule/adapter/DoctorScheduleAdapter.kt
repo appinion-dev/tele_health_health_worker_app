@@ -66,7 +66,7 @@ class DoctorScheduleAdapter(private val interaction: Interaction? = null) :
             itemView.name.text = item.doctorName
             val startTime = AppUtils.changeDateFormat(item.startTime, "dd-MM-yyyy h:mm a", "h:mm a")
             val endTime = AppUtils.changeDateFormat(item.endTime, "dd-MM-yyyy h:mm a", "h:mm a")
-            val datetime = startTime + " TO " + endTime
+            val datetime = "$startTime TO $endTime"
             itemView.date.text = datetime
 //            itemView.available.text = item.doctorName
         }

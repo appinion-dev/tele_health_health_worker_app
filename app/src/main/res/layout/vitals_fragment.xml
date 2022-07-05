@@ -16,6 +16,7 @@
             android:layout_height="62dp"
             android:layout_marginTop="1dp"
             android:iconifiedByDefault="false"
+            android:visibility="gone"
             android:searchIcon="@drawable/ic_baseline_search_primary_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

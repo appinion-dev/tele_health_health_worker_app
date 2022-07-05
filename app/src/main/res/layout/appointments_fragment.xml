@@ -37,8 +37,8 @@
             android:foreground="@drawable/ripple_dark_with_shape"
             android:paddingStart="@dimen/std_dimen_10"
             android:paddingEnd="@dimen/std_dimen_16"
-            android:textColor="@color/white"
             android:visibility="gone"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/searchView"
             app:layout_constraintEnd_toEndOf="@+id/searchView"
             app:layout_constraintTop_toTopOf="parent" />

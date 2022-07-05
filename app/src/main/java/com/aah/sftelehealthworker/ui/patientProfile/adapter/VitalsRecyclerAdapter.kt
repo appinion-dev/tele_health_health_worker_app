@@ -60,14 +60,13 @@ class VitalsRecyclerAdapter(private val interaction: Interaction? = null) :
                 interaction?.onItemSelected(adapterPosition, item)
             }
 
-            itemView.title.text = "Vitals"
+            itemView.title.text = "Vitals - " + (layoutPosition + 1)
             val date = AppUtils.changeDateFormatGMT(
                 item.createdAt,
                 "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
                 "h:mm a | MMM dd, yyyy"
             )
             itemView.date.text = date
-
         }
     }
 
