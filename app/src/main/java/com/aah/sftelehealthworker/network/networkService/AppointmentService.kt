@@ -45,7 +45,7 @@ object AppointmentService {
     }
 
     @Synchronized
-    fun requestDoctorList(doctorsModel: MutableLiveData<DoctorsModel>, token :String, categoryId : String, pageNo:String, size: String,branchID:String): MutableLiveData<DoctorsModel> {
+    fun requestDoctorList(doctorsModel: MutableLiveData<DoctorsModel>, token :String, categoryId : String,branchID:String, pageNo:String, size: String): MutableLiveData<DoctorsModel> {
 
         val call: Call<DoctorsModel> = ApiClient.getApi().requestDoctorList(token, categoryId,branchID, pageNo, size)
         call.enqueue(object : Callback<DoctorsModel> {
