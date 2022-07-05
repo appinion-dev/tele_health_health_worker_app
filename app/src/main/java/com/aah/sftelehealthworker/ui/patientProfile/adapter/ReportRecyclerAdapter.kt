@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.DiffUtil
 import com.aah.sftelehealthworker.R
 import com.aah.sftelehealthworker.models.newPatient.Report
 import com.aah.sftelehealthworker.utils.AppUtils
+import kotlinx.android.synthetic.main.report_row.view.*
 import kotlinx.android.synthetic.main.vitals_row.view.*
+import kotlinx.android.synthetic.main.vitals_row.view.date
+import kotlinx.android.synthetic.main.vitals_row.view.title
 import java.util.*
 
 class ReportRecyclerAdapter(private val interaction: Interaction? = null) :
@@ -68,6 +71,7 @@ class ReportRecyclerAdapter(private val interaction: Interaction? = null) :
             itemView.title.text = item.title
             val date = AppUtils.changeDateFormat(item.createdAt,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "h:mm a | MMM dd, yyyy")
             itemView.date.text = date
+            itemView.note.text = item.note
         }
     }
 
