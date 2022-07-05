@@ -165,7 +165,7 @@ class AppointmentsFragment : Fragment(), ScheduleRecyclerAdapter.Interaction {
         viewModel.appointmentMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it.isNullOrEmpty()) {
                 scheduleRecyclerAdapter.submitList(emptyList())
-                AppUtils.message(binding.root, "No Appointment Available", context)
+                //AppUtils.message(binding.root, "No Appointment Available", context)
             } else {
                 scheduleRecyclerAdapter.submitList(it)
                 binding.recyclerView.scheduleLayoutAnimation()

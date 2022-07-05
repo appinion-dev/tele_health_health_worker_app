@@ -101,7 +101,7 @@ class PatientsFragment : Fragment(), PatientsRecyclerAdapter.Interaction {
         viewModel.patientMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it.isNullOrEmpty()) {
                 patientsRecyclerAdapter.submitList(emptyList())
-                AppUtils.message(binding.root, "No data found!", context)
+               // AppUtils.message(binding.root, "No data found!", context)
             } else {
                 patientsRecyclerAdapter.submitList(it)
                 binding.recyclerView.scheduleLayoutAnimation()

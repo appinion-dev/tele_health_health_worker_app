@@ -88,7 +88,7 @@ class DoctorCategoryFragment : Fragment(), DoctorCategoryRecyclerAdapter.Interac
 
         viewModel.categoryMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it.isNullOrEmpty()) {
-                AppUtils.message(binding.root, "Category not found", context)
+                //AppUtils.message(binding.root, "Category not found", context)
                 categoryAdapter.submitList(emptyList())
             } else {
                 categoryAdapter.submitList(it)

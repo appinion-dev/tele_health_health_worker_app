@@ -113,7 +113,7 @@ class PrescriptionViewFragment : BaseFragment() {
     private fun observeData() {
         viewModel.prescriptionsMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it.isNullOrEmpty()) {
-                AppUtils.message(binding.root, "No prescription Found", context)
+              //  AppUtils.message(binding.root, "No prescription Found", context)
             } else {
                 initView(it[0].prescriptionDetails!!)
             }
