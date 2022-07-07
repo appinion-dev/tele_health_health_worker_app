@@ -1,25 +1,21 @@
 package com.aah.sftelehealthworker.ui.home
 
+import android.content.Context
+import android.content.DialogInterface
 import android.graphics.drawable.Drawable
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
+import androidx.fragment.app.Fragment
 import com.aah.sftelehealthworker.R
-import com.aah.sftelehealthworker.ui.adapter.UniversalPagerAdapter
 import com.aah.sftelehealthworker.ui.home.adapter.HomeViewPagerAdapter
-import com.aah.sftelehealthworker.ui.home.appointments.AppointmentsFragment
-import com.aah.sftelehealthworker.ui.home.patients.PatientsFragment
-import com.aah.sftelehealthworker.ui.home.settings.SettingsFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.home_fragment.view.*
-import java.util.LinkedHashMap
 
 class HomeFragment : Fragment() {
 
@@ -34,6 +30,7 @@ class HomeFragment : Fragment() {
     private lateinit var stringFragmentMap: MutableMap<String, Fragment>
     private lateinit var iconFragmentMap: MutableMap<String, Drawable>
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,23 +41,24 @@ class HomeFragment : Fragment() {
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 //        setUpViewPager(view)
         view.viewPager2.adapter = HomeViewPagerAdapter(childFragmentManager, lifecycle)
-        val tabLayoutMediator = TabLayoutMediator(view.tabLayout,view.viewPager2, object :TabLayoutMediator.TabConfigurationStrategy{
-            override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
-                if (position==0){
-                    tab.text = "Appointments"
-                    tab.setIcon(R.drawable.ic_baseline_calendar_white_24)
+        val tabLayoutMediator = TabLayoutMediator(
+            view.tabLayout,
+            view.viewPager2,
+            object : TabLayoutMediator.TabConfigurationStrategy {
+                override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
+                    if (position == 0) {
+                        tab.text = "Appointments"
+                        tab.setIcon(R.drawable.ic_baseline_calendar_white_24)
+                    } else if (position == 1) {
+                        tab.text = "Patient"
+                        tab.setIcon(R.drawable.ic_baseline_person_white_24)
+                    } else if (position == 2) {
+                        tab.text = "Settings"
+                        tab.setIcon(R.drawable.ic_baseline_settings_white_24)
+                    }
                 }
-                else if(position==1){
-                    tab.text = "Patient"
-                    tab.setIcon(R.drawable.ic_baseline_person_white_24)
-                }
-                else if(position==2){
-                    tab.text = "Settings"
-                    tab.setIcon(R.drawable.ic_baseline_settings_white_24)
-                }
-            }
 
-        })
+            })
         tabLayoutMediator.attach()
         return view
     }
@@ -97,5 +95,7 @@ class HomeFragment : Fragment() {
 //        iconFragmentMap.put(resources.getString(R.string.patients), getResources().getDrawable(R.drawable.ic_baseline_person_white_24))
 //        iconFragmentMap.put(resources.getString(R.string.settings), getResources().getDrawable(R.drawable.ic_baseline_settings_white_24))
 //    }
+
+
 
 }

@@ -1,14 +1,17 @@
 package com.aah.sftelehealthworker.ui
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.DataBindingUtil
 import com.aah.sftelehealthworker.R
 import com.aah.sftelehealthworker.databinding.MainActivityBinding
@@ -19,7 +22,7 @@ import gun0912.tedimagepicker.builder.TedImagePicker
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: MainActivityBinding
-
+    var alertDialog: AlertDialog? = null
     //    private lateinit var navController: NavController
     private val PERMISSIONS_STORAGE = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -96,6 +99,24 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
+    }
+
+    override fun onBackPressed() {
+        createDialog()
+    }
+    fun createDialog() {
+
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder.setMessage("Are you sure you want to exit?")
+        alertDialogBuilder.setPositiveButton("Yes") { _: DialogInterface, _: Int ->
+            finish()
+        }
+        alertDialogBuilder.setNegativeButton(
+            "Cancel",
+            { dialogInterface: DialogInterface, i: Int -> })
+
+        alertDialog = alertDialogBuilder.create()
+        alertDialog?.show()
     }
 
 }
