@@ -96,7 +96,6 @@
                 android:inputType="phone"
                 android:maxEms="9"
                 android:maxLines="1"
-                android:text="1976470847"
                 android:textCursorDrawable="@drawable/color_cursor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -4,7 +4,7 @@
     <string name="image">image</string>
     <string name="health_worker_app">Health Worker App</string>
     <string name="login">Login</string>
-    <string name="enter_your_mobile_number">ENTER YOUR SDO ID</string>
+    <string name="enter_your_mobile_number">ENTER YOUR MOBILE NUMBER</string>
     <string name="verify">Verify</string>
     <string name="mobile_number">MOBILE NUMBER</string>
     <string name="appointments">Appointments</string>
