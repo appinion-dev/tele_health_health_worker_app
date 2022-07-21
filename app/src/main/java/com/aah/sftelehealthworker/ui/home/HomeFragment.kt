@@ -11,6 +11,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.aah.sftelehealthworker.R
 import com.aah.sftelehealthworker.ui.home.adapter.HomeViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
@@ -29,7 +30,7 @@ class HomeFragment : Fragment() {
     private lateinit var viewModel: HomeViewModel
     private lateinit var stringFragmentMap: MutableMap<String, Fragment>
     private lateinit var iconFragmentMap: MutableMap<String, Drawable>
-
+    var alertDialog: AlertDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +60,9 @@ class HomeFragment : Fragment() {
                 }
 
             })
+
+
+
         tabLayoutMediator.attach()
         return view
     }
@@ -96,6 +100,22 @@ class HomeFragment : Fragment() {
 //        iconFragmentMap.put(resources.getString(R.string.settings), getResources().getDrawable(R.drawable.ic_baseline_settings_white_24))
 //    }
 
+
+
+    fun createDialog() {
+
+        val alertDialogBuilder = AlertDialog.Builder(requireContext())
+        alertDialogBuilder.setMessage("Are you sure you want to exit?")
+        alertDialogBuilder.setPositiveButton("Yes") { _: DialogInterface, _: Int ->
+            activity?.finish()
+        }
+        alertDialogBuilder.setNegativeButton(
+            "Cancel",
+            { dialogInterface: DialogInterface, i: Int -> })
+
+        alertDialog = alertDialogBuilder.create()
+        alertDialog?.show()
+    }
 
 
 }

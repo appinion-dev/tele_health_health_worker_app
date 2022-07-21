@@ -13,8 +13,10 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.aah.sftelehealthworker.R
 import com.aah.sftelehealthworker.databinding.MainActivityBinding
+import com.aah.sftelehealthworker.ui.home.HomeFragment
 import com.aah.sftelehealthworker.utils.AppUtils
 import gun0912.tedimagepicker.builder.TedImagePicker
 
@@ -44,6 +46,8 @@ class MainActivity : AppCompatActivity() {
 //                    .replace(R.id.container, LoginFragment.newInstance())
 //                    .commitNow()
 //        }
+
+
         initToolbar()
     }
 
@@ -102,7 +106,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        createDialog()
+        val navHost = supportFragmentManager.findFragmentById(R.id.fragment)
+        navHost?.let { navFragment ->
+            navFragment.childFragmentManager.primaryNavigationFragment?.let { fragment ->
+                if (fragment is HomeFragment) {
+                    createDialog()
+                } else {
+                    super.onBackPressed()
+                }
+            }
+        }
+
+       // createDialog()
     }
     fun createDialog() {
 
