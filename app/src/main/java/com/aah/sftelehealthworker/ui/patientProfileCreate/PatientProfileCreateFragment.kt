@@ -270,13 +270,13 @@ class PatientProfileCreateFragment : BaseFragment() {
     }
 
     private fun financialCategory(): Int {
-        var value: Int? = null
-        if (data.equals("Poor Patient")) {
-            value = 1
-        }
-        if (data.equals("Ultra Poor Patient")) {
-            value = 2
-        }
+       var value: Int? = 1
+//        if (data.equals("Poor Patient")) {
+//            value = 1
+//        }
+//        if (data.equals("Ultra Poor Patient")) {
+//            value = 2
+//        }
         return value!!
     }
 
@@ -300,7 +300,7 @@ class PatientProfileCreateFragment : BaseFragment() {
 
     private fun isValid(): Boolean {
 //        return isGendernSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven()
-        return isGenderSelected() && isNameGiven() && isAgeGiven()  && isSajidaBenificiary() && isSelectCategory()
+        return isGenderSelected() && isNameGiven() && isAgeGiven()  && isSajidaBenificiary() //&& isSelectCategory()
 //        isGendernSelected()
 //        isNameGiven()
 //        isAgeGiven()

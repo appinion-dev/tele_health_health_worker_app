@@ -56,7 +56,47 @@
             tools:ignore="ContentDescription" />
 
     </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Refer Hospital"
+            android:textAllCaps="true"
+            android:textColor="@color/darkGray"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/darkGray" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hospitalListRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/noDataFound"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="No Hospital Data Found"
+            android:textAlignment="center"
+            android:textColor="@color/dark_red"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            android:visibility="gone" />
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -1,5 +1,6 @@
 package com.aah.sftelehealthworker.ui.patientProfile.fragments
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.DownloadManager
 import android.content.BroadcastReceiver
@@ -8,6 +9,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,12 +21,19 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.aah.sftelehealthworker.R
 import com.aah.sftelehealthworker.common.BaseFragment
 import com.aah.sftelehealthworker.databinding.FragmentPrescriptionViewBinding
+import com.aah.sftelehealthworker.models.DataResource
 import com.aah.sftelehealthworker.models.document.Document
 import com.aah.sftelehealthworker.models.newPatient.Medicine
 import com.aah.sftelehealthworker.models.newPatient.PrescriptionDetails
+import com.aah.sftelehealthworker.models.patient.Appointment
+import com.aah.sftelehealthworker.models.referHospital.Hospital
+import com.aah.sftelehealthworker.ui.patientProfile.adapter.HospitalAdapter
+import com.aah.sftelehealthworker.ui.view_model.HospitalViewModel
 import com.aah.sftelehealthworker.utils.*
 
 class PrescriptionViewFragment : BaseFragment() {
@@ -38,12 +47,17 @@ class PrescriptionViewFragment : BaseFragment() {
 
     lateinit var binding: FragmentPrescriptionViewBinding
     private lateinit var viewModel: PrescriptionsViewModel
+    private lateinit var referHospitalViewModel: HospitalViewModel
+    private lateinit var hospitalAdapter: HospitalAdapter
+    var hospitalList: ArrayList<Hospital>? = null
+    //private lateinit var hospitalListRecyclerview: RecyclerView
 
     companion object {
         fun newInstance() = PrescriptionViewFragment()
     }
 
 
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,19 +70,29 @@ class PrescriptionViewFragment : BaseFragment() {
             false
         )
         viewModel = ViewModelProvider(this).get(PrescriptionsViewModel::class.java)
+        referHospitalViewModel = ViewModelProvider(this).get(HospitalViewModel::class.java)
+        initRecyclerView()
+
+        getHospitalList()
         return binding.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
         navController = Navigation.findNavController(view)
+//        val prescription = arguments?.getSerializable(PRESCRIPTION_KEY) as PrescriptionDetails
+//        referHospitalViewModel.getHospitalList(prescription.id.toString())
+        hospitalList = ArrayList<Hospital>()
 
         caseId = arguments?.getString(CASE_ID_KEY)
         patientId = arguments?.getString(PATIENT_ID_KEY)
         if (patientId != null && arguments?.getSerializable(PRESCRIPTION_KEY) != null) {
             val prescription = arguments?.getSerializable(PRESCRIPTION_KEY) as PrescriptionDetails
+            referHospitalViewModel.getHospitalList(prescription.id.toString())
             initView(prescription)
+
         } else {
             //presenter.getPrescription(caseId)
             viewModel.loadData(patientId!!, caseId!!)
@@ -103,6 +127,42 @@ class PrescriptionViewFragment : BaseFragment() {
 
     }
 
+    private fun initRecyclerView() {
+        binding.hospitalListRecyclerview.apply {
+            layoutManager = LinearLayoutManager(context)
+
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun getHospitalList() {
+        referHospitalViewModel.hospitalResponse.observe(
+            viewLifecycleOwner,
+            Observer { dataResource ->
+                when (dataResource.status) {
+                    DataResource.DataStatus.SUCCESS -> {
+                        if (dataResource.data!!.data.isNullOrEmpty()) {
+                            hospitalList.isNullOrEmpty()
+                            AppUtils.message(binding.root, "No Refer Hospital Data Available", context)
+                        } else {
+                            try {
+                                hospitalAdapter =
+                                    HospitalAdapter(dataResource.data.data!! as ArrayList<Hospital>)
+                                binding.hospitalListRecyclerview.adapter = hospitalAdapter
+                                hospitalAdapter.notifyDataSetChanged()
+                            } catch (e: Exception) {
+                                e.stackTrace
+                            }
+                        }
+                    }
+                    DataResource.DataStatus.ERROR -> {
+                        Log.d("Tag", dataResource.message.toString())
+                        Log.d("TagHhhh", dataResource.message.toString())
+                    }
+                }
+            })
+    }
+
     private fun initMessage() {
         viewModel.message.observe(viewLifecycleOwner, Observer {
             AppUtils.message(binding.root, it, context)
@@ -110,66 +170,76 @@ class PrescriptionViewFragment : BaseFragment() {
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun observeData() {
         viewModel.prescriptionsMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it.isNullOrEmpty()) {
-              //  AppUtils.message(binding.root, "No prescription Found", context)
+                //  AppUtils.message(binding.root, "No prescription Found", context)
             } else {
                 initView(it[0].prescriptionDetails!!)
             }
         })
+
+
     }
 
     private fun initView(prescription: PrescriptionDetails) {
-        binding.medicalAdvice.setText(prescription.advice)
-        binding.historyAndSymptoms.setText(prescription.history)
+
+        binding.medicalAdvice.text = prescription.advice
+        binding.historyAndSymptoms.text = prescription.history
         if (prescription.medicine != null && prescription.medicine!!.size > 0) {
             for (medicine in prescription.medicine!!) {
                 binding.addedMedicinesContainer.addView(setMedicineView(medicine))
             }
         }
         binding.download.setOnClickListener(View.OnClickListener {
-            if (prescription.link != null && !prescription.link!!.isEmpty()) {
-                if (fdh!!.isFileDownloaded(prescription.id!!.toInt())) {
-                    val document = Document()
-                    document.setPreviewUrl(prescription.link)
-                    gotoPdfViewActivity(document)
-                } else {
-                    if (AppUtils.isNetworkAvailable(activity as Activity)) {
-                        fdh!!.downloadFile(
-                            prescription.link,
-                            prescription.consultId.toString(),
-                            "download in progress...",
-                            prescription.id!!,
-                            prescription.getDocumentFileExtension()!!
-                        )
-                        requireActivity().registerReceiver(
-                            downloadStatusReceiver,
-                            downloadManagerIntent
-                        )
-                        isReceiverRegistered = true
-                        AppUtils.message(
-                            binding.root,
-                            "Prescription download in progress",
-                            Color.WHITE,
-                            R.color.colorPrimary
-                        )
+            try {
+                if (prescription.link != null && !prescription.link!!.isEmpty()) {
+                    fdh = context?.let { it1 -> FileDownloadHelper(it1) }
+                    if (fdh!!.isFileDownloaded(prescription.id!!.toInt())) {
+                        val document = Document()
+                        document.previewUrl = prescription.link
+                        gotoPdfViewActivity(document)
                     } else {
+                        if (AppUtils.isNetworkAvailable(activity as Activity)) {
+                            fdh!!.downloadFile(
+                                prescription.link,
+                                prescription.consultId.toString(),
+                                "download in progress...",
+                                prescription.id!!,
+                                prescription.getDocumentFileExtension()!!
+                            )
+                            requireActivity().registerReceiver(
+                                downloadStatusReceiver,
+                                downloadManagerIntent
+                            )
+                            isReceiverRegistered = true
+                            AppUtils.message(
+                                binding.root,
+                                "Prescription download in progress",
+                                Color.WHITE,
+                                R.color.colorPrimary
+                            )
+                        } else {
 
-                        AppUtils.message(
-                            binding.root,
-                            "Connection not found!",
-                            context
-                        )
+                            AppUtils.message(
+                                binding.root,
+                                "Connection not found!",
+                                context
+                            )
+                        }
                     }
+                } else {
+                    AppUtils.message(
+                        binding.root,
+                        "Prescription File not found!",
+                        context
+                    )
                 }
-            } else {
-                AppUtils.message(
-                    binding.root,
-                    "Prescription File not found!",
-                    context
-                )
+            } catch (e: Exception) {
+                e.stackTrace
             }
+
         })
     }
 
@@ -191,8 +261,8 @@ class PrescriptionViewFragment : BaseFragment() {
         val dosageMorning = view.findViewById<TextView>(R.id.dosage_morning)
         val dosageAfternoon = view.findViewById<TextView>(R.id.dosage_afternoon)
         val dosageNight = view.findViewById<TextView>(R.id.dosage_night)
-        medicineName.setText(medicine.name)
-        instructions.setText(medicine.instruction)
+        medicineName.text = medicine.name
+        instructions.text = medicine.instruction
         dosage.text =
             java.lang.String.format("%s x %s days", medicine.dosage, medicine.duration)
         if (medicine.dosage!!.length === 5) {

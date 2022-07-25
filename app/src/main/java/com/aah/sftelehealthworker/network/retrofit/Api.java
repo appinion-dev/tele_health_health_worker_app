@@ -20,6 +20,7 @@ import com.aah.sftelehealthworker.models.newPatient.Vital;
 import com.aah.sftelehealthworker.models.newPatient.VitalsModel;
 import com.aah.sftelehealthworker.models.newPatient.VitalsSubmitModel;
 import com.aah.sftelehealthworker.models.patient.PatientAppointment;
+import com.aah.sftelehealthworker.models.referHospital.HospitalResponse;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -183,6 +184,13 @@ public interface Api {
             //@Part("image") RequestBody image
             @Part MultipartBody.Part image
     );
+
+    @GET("referer/find")
+    Call<HospitalResponse> getHospitalListList(@Header("Authorization") String authToken,
+                                               @Query("prescription_id") String prescriptionId);
+
+
+
     //POST 201 Created https://telehealthapi.appinionbd.com/api/v2/patient/uploadVital (80ms)
     //{"patientId":59374,"bloodPressure":"90/110","pulseRate":"75","respirationRate":"13","bloodSuger":"9","bloodTemperature":"95","bodyWeight":"80"}
     //<-- GET 200 OK https://telehealthapi.appinionbd.com/api/v2/patient/patientWiseVitalList?patientId=59374 (873ms)
