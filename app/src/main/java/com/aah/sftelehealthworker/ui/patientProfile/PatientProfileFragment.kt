@@ -1,5 +1,6 @@
 package com.aah.sftelehealthworker.ui.patientProfile
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -39,7 +40,7 @@ class PatientProfileFragment : Fragment() {
     private lateinit var patientName: String
     private lateinit var patientAge: String
     private lateinit var patientGender: String
-
+    private lateinit var image: String
     private lateinit var uri: Uri
 
     override fun onCreateView(
@@ -56,6 +57,7 @@ class PatientProfileFragment : Fragment() {
         patientName = arguments?.getString("name").toString()
         patientAge = arguments?.getString("age").toString()
         patientGender = arguments?.getString("gender").toString()
+        image = arguments?.getString("image").toString()
 
         AppUtils.log("TestTry", Gson().toJson(patientId))
 
@@ -89,6 +91,7 @@ class PatientProfileFragment : Fragment() {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun showSingleImage(uri: Uri) {
         this.uri = uri
         GlideApp.with(this)
@@ -110,36 +113,25 @@ class PatientProfileFragment : Fragment() {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun initProfile() {
 
-//        viewModel.patientProfileMutableLiveData.observe(viewLifecycleOwner, Observer {
-//            binding.name.text = it.firstName + " " + it.lastName
-//            val age = it.age + " Years"
-//            binding.age.text = age
-//            binding.sex.text = it.gender
-//
-//            GlideApp
-//                .with(this)
-//                .load(it.image)
-//                .circleCrop()
-//                .placeholder(context?.getDrawable(R.drawable.person_male))
-//                .error(context?.getDrawable(R.drawable.person_male))
-//                .fallback(context?.getDrawable(R.drawable.person_male))
-//                .into(binding.image)
-//        })
         binding.name.text = patientName
         val age = "$patientAge Years"
         binding.age.text = age
         binding.sex.text = patientGender
 
+
         GlideApp
             .with(this)
-            .load(R.drawable.person_male)
+            .load(image)
             .circleCrop()
             .placeholder(context?.getDrawable(R.drawable.person_male))
             .error(context?.getDrawable(R.drawable.person_male))
             .fallback(context?.getDrawable(R.drawable.person_male))
             .into(binding.image)
+
+
     }
 
     private fun compraceImage() {
@@ -160,7 +152,7 @@ class PatientProfileFragment : Fragment() {
     }
 
     private fun setupFragments() {
-       // val assessmentFragment = AssessmentFragment()
+        // val assessmentFragment = AssessmentFragment()
         val appointmentFragment = PatientAppointmentFragment()
         val vitalsFragment = VitalsFragment()
         val prescriptionFragment = PrescriptionsFragment()
@@ -181,10 +173,10 @@ class PatientProfileFragment : Fragment() {
         prescriptionFragment.setPatientId(patientId)
 
         val bundle = Bundle()
-    /*    stringFragmentMap.put(
-            resources.getString(R.string.assessments),
-            assessmentFragment as Fragment
-        )*/
+        /*    stringFragmentMap.put(
+                resources.getString(R.string.assessments),
+                assessmentFragment as Fragment
+            )*/
         stringFragmentMap.put(
             resources.getString(R.string.appointments),
             appointmentFragment as Fragment

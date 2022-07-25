@@ -118,8 +118,9 @@ class PatientsFragment : Fragment(), PatientsRecyclerAdapter.Interaction {
 
     private fun gotoPatientProfile(item: Patient) {
         val bundle = bundleOf("id" to item.id, "phone" to item.phone
-        ,"name" to item.firstName+item.lastName,
+        ,"name" to item.firstName+" " +item.lastName,
             "gender" to item.gender,
+            "image" to item.image,
             "age" to item.age)
         Navigation.findNavController(binding.root)
             .navigate(R.id.action_homeFragment_to_patientProfileFragment, bundle)
