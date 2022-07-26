@@ -93,7 +93,7 @@ class PatientsFragment : Fragment(), PatientsRecyclerAdapter.Interaction {
 
     private fun initMessage() {
         viewModel.message.observe(viewLifecycleOwner, Observer {
-            AppUtils.message(binding.root, it, context)
+           // AppUtils.message(binding.root, it, context)
         })
     }
 
