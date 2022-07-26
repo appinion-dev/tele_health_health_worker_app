@@ -13,6 +13,8 @@ import androidx.navigation.Navigation
 import com.aah.sftelehealthworker.R
 import com.aah.sftelehealthworker.databinding.SettingsFragmentBinding
 import com.aah.sftelehealthworker.ui.splash.SplashViewModel
+import com.aah.sftelehealthworker.utils.GlideApp
+import com.bumptech.glide.Glide
 
 class SettingsFragment : Fragment() {
 
@@ -50,6 +52,15 @@ class SettingsFragment : Fragment() {
                 binding.name.text = it.name
                 binding.age.text = "${it.isdCode}${it.phone}"
                 binding.sex.text = it.gender
+
+                GlideApp
+                    .with(this)
+                    .load(it.image)
+                    .circleCrop()
+                    .placeholder(context?.getDrawable(R.drawable.person_male))
+                    .error(context?.getDrawable(R.drawable.person_male))
+                    .fallback(context?.getDrawable(R.drawable.person_male))
+                    .into(binding.image)
             }
         })
     }
