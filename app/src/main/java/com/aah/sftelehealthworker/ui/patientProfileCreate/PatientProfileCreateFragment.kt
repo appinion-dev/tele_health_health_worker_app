@@ -300,10 +300,9 @@ class PatientProfileCreateFragment : BaseFragment() {
 
     private fun isValid(): Boolean {
 //        return isGendernSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven()
-        return isGenderSelected() && isNameGiven() && isAgeGiven()  && isSajidaBenificiary() //&& isSelectCategory()
-//        isGendernSelected()
+        return isGenderSelected() && isNameGiven() && isAgeGiven()  && isSajidaBenificiary() && isGenderSelected() && isAgeGiven()
 //        isNameGiven()
-//        isAgeGiven()
+        //&& isSelectCategory()
 //        isUpazillaGiven()
     }
 

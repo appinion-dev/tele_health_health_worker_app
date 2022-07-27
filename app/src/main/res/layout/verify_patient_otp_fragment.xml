@@ -225,7 +225,7 @@
             android:backgroundTint="@color/colorPrimary"
             android:ems="9"
             android:imeOptions="actionDone"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLines="1"
             android:textCursorDrawable="@drawable/color_cursor"
             app:layout_constraintEnd_toEndOf="parent"
