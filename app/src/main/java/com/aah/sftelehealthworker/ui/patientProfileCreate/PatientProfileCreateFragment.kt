@@ -249,12 +249,16 @@ class PatientProfileCreateFragment : BaseFragment() {
 //    }
 
     private fun getGender(): String {
-        return if (binding.male.isChecked) {
-            "Male"
-        } else if (binding.female.isChecked) {
-            "Female"
-        } else {
-            ""
+        return when {
+            binding.male.isChecked -> {
+                "Male"
+            }
+            binding.female.isChecked -> {
+                "Female"
+            }
+            else -> {
+                ""
+            }
         }
     }
 
@@ -300,8 +304,8 @@ class PatientProfileCreateFragment : BaseFragment() {
 
     private fun isValid(): Boolean {
 //        return isGendernSelected() && isNameGiven() && isAgeGiven() && isUpazillaGiven()
-        return isGenderSelected() && isNameGiven() && isAgeGiven()  && isSajidaBenificiary() && isGenderSelected() && isAgeGiven()
-//        isNameGiven()
+        return isGenderSelected() && isNameGiven() && isAgeGiven()  && isSajidaBenificiary()
+
         //&& isSelectCategory()
 //        isUpazillaGiven()
     }
