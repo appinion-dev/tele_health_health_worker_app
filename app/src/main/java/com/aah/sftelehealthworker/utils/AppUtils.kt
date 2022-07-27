@@ -206,7 +206,7 @@ object AppUtils {
             val dateFromUser = datePickerFormat.parse(date)
             val cal = Calendar.getInstance()
             cal.time = dateFromUser
-            cal.add(Calendar.HOUR, 6);
+          //  cal.add(Calendar.HOUR, 6);
             return myFormat.format(cal.time)
         } catch (e: ParseException) {
             e.printStackTrace()
@@ -222,7 +222,7 @@ object AppUtils {
             val dateFromUser = datePickerFormat.parse(date)
             val cal = Calendar.getInstance()
             cal.time = dateFromUser
-            cal.add(Calendar.HOUR, 6);
+            //cal.add(Calendar.HOUR, 6);
             return myFormat.format(cal.time)
         } catch (e: ParseException) {
             e.printStackTrace()
